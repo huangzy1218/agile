@@ -6,11 +6,12 @@
     <parent>
         <groupId>com.agile</groupId>
         <artifactId>agile</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>agile-common</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>agile-common-bom</module>
         <module>agile-common-core</module>
@@ -23,11 +24,4 @@
         <module>agile-common-security</module>
         <module>agile-common-swagger</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
 </project>

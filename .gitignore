@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### System Ignore ###
+Thumbs.db
+Servers
+.metadata
+.flattened-pom.xml
