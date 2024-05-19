@@ -10,7 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 import java.lang.annotation.*;
 
 /**
- * Open the Sp+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ring Doc.
+ * Open the Spring Doc.
  *
  * @author Huang Z.Y.
  */
@@ -24,12 +24,12 @@ import java.lang.annotation.*;
 public @interface EnableAgileDoc {
 
     /**
-     * 网关路由前缀
+     * Gateway route prefix
      */
     String value();
 
     /**
-     * 是否是微服务架构
+     * Is a microservices architecture or not.
      */
     boolean isMicro() default true;
 }

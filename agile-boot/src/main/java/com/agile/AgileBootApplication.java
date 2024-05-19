@@ -1,5 +1,6 @@
-package com;
+package com.agile;
 
+import com.agile.common.swagger.annotation.EnableAgileDoc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,11 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * @author Huang Z.Y.
  */
+@EnableAgileDoc(value = "admin", isMicro = false)
+
 @SpringBootApplication
 public class AgileBootApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AgileBootApplication.class, args);
     }
+
 }
     

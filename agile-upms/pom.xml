@@ -5,16 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.agile</groupId>
-        <artifactId>pig-upms</artifactId>
+        <artifactId>agile</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>agile-upms-biz</artifactId>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
+    <artifactId>agile-upms</artifactId>
+    <description>agile general user rights management aggregation module</description>
+    <packaging>pom</packaging>
+    <modules>
+        <module>agile-upms-api</module>
+        <module>agile-upms-biz</module>
+    </modules>
 </project>

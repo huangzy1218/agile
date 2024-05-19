@@ -1,17 +1,18 @@
 package com.agile.common.log.event;
 
-import com.agile.common.log.entity.Log;
+import com.agile.admin.api.entity.SysLog;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * 日志事件。
+ * System log event.
  *
  * @author Huang Z.Y.
  */
-public class LogEvent extends ApplicationEvent {
+public class SysLogEvent extends ApplicationEvent {
 
-    public LogEvent(Log source) {
+    public SysLogEvent(SysLog source) {
         super(source);
     }
+
 }
     

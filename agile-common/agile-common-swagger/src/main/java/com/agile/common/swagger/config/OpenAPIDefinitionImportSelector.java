@@ -10,7 +10,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * 根据@EnableDoc注解的配置信息注册OpenAPI相关的Bean定义。
+ * Register the Bean definitions associated with the Open API according to the configuration information in the
+ * {@link EnableAgileDoc @EnableAgileDoc}
+ * annotation.
  *
  * @author Huang Z.Y.
  */
@@ -18,21 +20,22 @@ public class OpenAPIDefinitionImportSelector implements ImportBeanDefinitionRegi
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
-        // 获取@EnableDoc注解的配置信息
+        // Get the configuration information for the @EnableAgileDoc annotation
         Map<String, Object> annotationAttributes = metadata.getAnnotationAttributes(EnableAgileDoc.class.getName(), true);
-        Object value = annotationAttributes.get("value");
+        Object value = Objects.requireNonNull(annotationAttributes).get("value");
         if (Objects.isNull(value)) {
             return;
         }
 
-        // 注册OpenAPIDefinition类的Bean定义
+        // Register the Bean Definition for the Open API Definition class
         BeanDefinitionBuilder definition = BeanDefinitionBuilder.genericBeanDefinition(OpenAPIDefinition.class);
         definition.addPropertyValue("path", value);
         definition.setPrimary(true);
 
         registry.registerBeanDefinition("openAPIDefinition", definition.getBeanDefinition());
 
-        // 如果是微服务架构则，引入了服务发现声明相关的元数据配置
+        // In the case of a microservices architecture,
+        // metadata configuration related to service discovery declarations is introduced
         Object isMicro = annotationAttributes.getOrDefault("isMicro", true);
         if (isMicro.equals(false)) {
             return;
@@ -43,5 +46,6 @@ public class OpenAPIDefinitionImportSelector implements ImportBeanDefinitionRegi
         openAPIMetadata.addPropertyValue("path", value);
         registry.registerBeanDefinition("openAPIMetadata", openAPIMetadata.getBeanDefinition());
     }
+    
 }
     

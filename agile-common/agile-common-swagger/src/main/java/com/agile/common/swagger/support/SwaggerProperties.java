@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Swagger 配置项。
+ * Swagger configuration items。
  *
  * @author Huang Z.Y.
  */
@@ -19,53 +19,54 @@ import java.util.Map;
 public class SwaggerProperties {
 
     /**
-     * 是否开启swagger
+     * Whether to enable swagger.
      */
     private Boolean enabled = true;
 
     /**
-     * swagger会解析的包路径
-     **/
+     * Swagger will parse the package path.
+     */
     private String basePackage = "";
 
     /**
-     * swagger会解析的url规则
+     * Swagger will parse url rules.
      **/
     private List<String> basePath = new ArrayList<>();
 
     /**
-     * 在basePath基础上需要排除的url规则
+     * Url rules that need to be excluded based on basePath.
      **/
     private List<String> excludePath = new ArrayList<>();
 
     /**
-     * 需要排除的服务
+     * Services to be excluded.
      */
     private List<String> ignoreProviders = new ArrayList<>();
 
     /**
-     * 标题
+     * Title.
      **/
     private String title = "";
 
     /**
-     * 网关
+     * Gateway.
      */
     private String gateway;
 
     /**
-     * 获取token
+     * Get token.
      */
     private String tokenUrl;
 
     /**
-     * 作用域
+     * Scope.
      */
     private String scope;
 
     /**
-     * 服务转发配置
+     * Service forwarding configuration.
      */
     private Map<String, String> services;
+
 }
     

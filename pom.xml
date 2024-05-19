@@ -15,7 +15,8 @@
         <module>agile-common</module>
         <module>agile-gateway</module>
         <module>agile-register</module>
-        <module>pig-upms</module>
+        <module>agile-upms</module>
+        <module>agile-common/agile-common-excel</module>
     </modules>
 
     <properties>

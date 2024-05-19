@@ -8,7 +8,7 @@ import cn.hutool.extra.spring.SpringUtil;
 import cn.hutool.http.HttpUtil;
 import com.agile.common.core.util.SpringContextHolder;
 import com.agile.common.log.config.AgileLogProperties;
-import com.agile.common.log.event.LogEventSource;
+import com.agile.common.log.event.SysLogEventSource;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.experimental.UtilityClass;
 import org.springframework.core.StandardReflectionParameterNameDiscoverer;
@@ -32,12 +32,12 @@ import java.util.Objects;
  * @author Huang Z.Y.
  */
 @UtilityClass
-public class LogUtils {
+public class SysLogUtils {
 
-    public LogEventSource getSysLog() {
+    public SysLogEventSource getSysLog() {
         HttpServletRequest request = ((ServletRequestAttributes) Objects
                 .requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
-        LogEventSource log = new LogEventSource();
+        SysLogEventSource log = new SysLogEventSource();
         log.setLogType(LogTypeEnum.NORMAL.getType());
         log.setRequestUri(URLUtil.getPath(request.getRequestURI()));
         log.setMethod(request.getMethod());
@@ -46,7 +46,7 @@ public class LogUtils {
         log.setCreateBy(getUsername());
         log.setServiceId(SpringUtil.getProperty("spring.application.name"));
 
-        // get 参数脱敏
+        // GET parametric desensitization
         AgileLogProperties logProperties = SpringContextHolder.getBean(AgileLogProperties.class);
         Map<String, String[]> paramsMap = MapUtil.removeAny(request.getParameterMap(),
                 ArrayUtil.toArray(logProperties.getExcludeFields(), String.class));
@@ -55,7 +55,7 @@ public class LogUtils {
     }
 
     /**
-     * 获取用户名称
+     * Get username.
      *
      * @return username
      */
@@ -68,13 +68,13 @@ public class LogUtils {
     }
 
     /**
-     * 获取spel 定义的参数值
+     * Get the parameter values defined by SpEL.
      *
-     * @param context 参数容器
+     * @param context parameter context
      * @param key     key
-     * @param clazz   需要返回的类型
-     * @param <T>     返回泛型
-     * @return 参数值
+     * @param clazz   the type to be returned
+     * @param <T>     return generic
+     * @return parameter value
      */
     public <T> T getValue(EvaluationContext context, String key, Class<T> clazz) {
         SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
@@ -83,11 +83,11 @@ public class LogUtils {
     }
 
     /**
-     * 获取参数容器
+     * Get parameter container.
      *
-     * @param arguments       方法的参数列表
-     * @param signatureMethod 被执行的方法体
-     * @return 装载参数的容器
+     * @param arguments       the parameter list of the method
+     * @param signatureMethod the body of the method being executed
+     * @return container for loading parameters
      */
     public EvaluationContext getContext(Object[] arguments, Method signatureMethod) {
         String[] parameterNames = new StandardReflectionParameterNameDiscoverer().getParameterNames(signatureMethod);
@@ -100,5 +100,6 @@ public class LogUtils {
         }
         return context;
     }
+
 }
     

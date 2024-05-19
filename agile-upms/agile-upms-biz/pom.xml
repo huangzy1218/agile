@@ -5,14 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.agile</groupId>
-        <artifactId>agile</artifactId>
+        <artifactId>agile-upms</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>pig-upms</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>agile-upms-api</module>
-        <module>agile-upms-biz</module>
-    </modules>
+    <artifactId>agile-upms-biz</artifactId>
+
 </project>

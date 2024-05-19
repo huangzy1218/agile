@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
- * 日志配置类。
+ * Log configuration class.
  *
  * @author Huang Z.Y.
  */
@@ -20,18 +20,18 @@ public class AgileLogProperties {
     public static final String PREFIX = "security.log";
 
     /**
-     * 开启日志记录
+     * Enable logging.
      */
     private boolean enabled = true;
 
     /**
-     * 放行字段，password,mobile,idcard,phone
+     * Release field, such as (default) password, mobile, id card, phone
      */
     @Value("${security.log.exclude-fields:password,mobile,idcard,phone}")
     private List<String> excludeFields;
 
     /**
-     * 请求报文最大存储长度
+     * Maximum storage length of the request packet.
      */
     private Integer maxLength = 2000;
 }

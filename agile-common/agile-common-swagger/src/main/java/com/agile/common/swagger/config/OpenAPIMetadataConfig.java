@@ -8,24 +8,28 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * 配置Open API元数据。
+ * Open API metadata configuration class.
  *
  * @author Huang Z.Y.
+ * @see OpenAPIDefinitionImportSelector
+ * @see com.agile.common.swagger.annotation.EnableAgileDoc
  */
 public class OpenAPIMetadataConfig implements InitializingBean, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
     /**
-     * OpenAPI元数据的路径。
+     * Open API metadata path.
      */
     @Setter
     private String path;
 
     /**
-     * 在容器设置完所有Bean属性后调用。
+     * This method retrieves all bean names for the type ServiceInstance from the application context.<br/>
+     * It retrieves a bean of type ServiceInstance from the application context
+     * and adds metadata with the key "spring-doc" and the provided path value.
      *
-     * @throws Exception 如果在初始化期间发生错误
+     * @throws Exception If an error occurs during initialization
      */
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -38,7 +42,7 @@ public class OpenAPIMetadataConfig implements InitializingBean, ApplicationConte
         ServiceInstance serviceInstance = applicationContext.getBean(ServiceInstance.class);
         serviceInstance.getMetadata().put("spring-doc", path);
     }
-    
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;

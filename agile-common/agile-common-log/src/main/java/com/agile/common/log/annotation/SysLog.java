@@ -3,24 +3,24 @@ package com.agile.common.log.annotation;
 import java.lang.annotation.*;
 
 /**
- * 操作日志注解。
+ * Operation log annotation.
  *
  * @author Huang Z.Y.
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface AgileLog {
+public @interface SysLog {
 
     /**
-     * 描述
+     * description.
      */
     String value() default "";
 
     /**
-     * SPEL表达式
+     * SpEL expression.
      *
-     * @return 日志描述
+     * @return Log description
      */
     String expression() default "";
 }

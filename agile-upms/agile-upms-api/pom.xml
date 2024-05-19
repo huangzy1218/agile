@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.agile</groupId>
+        <artifactId>agile-upms</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>agile-upms-api</artifactId>
+    <description>agile eneral user rights management system public api module</description>
+
+    <dependencies>
+        <!-- Tool class core package -->
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-common-core</artifactId>
+        </dependency>
+        <!-- Feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-openfeign-core</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- MyBatis -->
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-common-mybatis</artifactId>
+        </dependency>
+        <!-- read and write of excel -->
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-common-excel</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

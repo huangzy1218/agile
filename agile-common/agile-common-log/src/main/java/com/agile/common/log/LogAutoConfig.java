@@ -1,7 +1,9 @@
 package com.agile.common.log;
 
-import com.agile.common.log.aspect.LogAspect;
+import com.agile.admin.api.feign.RemoteLogService;
+import com.agile.common.log.aspect.SysLogAspect;
 import com.agile.common.log.config.AgileLogProperties;
+import com.agile.common.log.event.SysLogListener;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -20,13 +22,13 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class LogAutoConfig {
 
     @Bean
-    public LogListener logListener(AgileLogProperties logProperties, RemoteLogService remoteLogService) {
-        return new LogListener(remoteLogService, logProperties);
+    public SysLogListener logListener(AgileLogProperties logProperties, RemoteLogService remoteLogService) {
+        return new SysLogListener(remoteLogService, logProperties);
     }
 
     @Bean
-    public LogAspect logAspect() {
-        return new LogAspect();
+    public SysLogAspect logAspect() {
+        return new SysLogAspect();
     }
 }
     

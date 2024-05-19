@@ -13,7 +13,7 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <!--工具类核心包-->
+        <!-- Tool class core package -->
         <dependency>
             <groupId>com.agile</groupId>
             <artifactId>agile-common-core</artifactId>
@@ -26,7 +26,7 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-http</artifactId>
         </dependency>
-        <!--安全依赖获取上下文信息-->
+        <!-- Security depends on obtaining contextual information -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
@@ -42,6 +42,10 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-upms-api</artifactId>
         </dependency>
     </dependencies>
 </project>

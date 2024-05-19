@@ -1,6 +1,6 @@
 package com.agile.common.log.event;
 
-import com.agile.common.log.entity.Log;
+import com.agile.admin.api.entity.SysLog;
 import lombok.Data;
 
 /**
@@ -9,11 +9,12 @@ import lombok.Data;
  * @author Huang Z.Y.
  */
 @Data
-public class LogEventSource extends Log {
+public class SysLogEventSource extends SysLog {
 
     /**
-     * 参数重写为Object，存储事件相关数据
+     * The parameter is rewritten to Object to store event-related data.
      */
     private Object body;
+
 }
     

@@ -11,22 +11,22 @@ import lombok.RequiredArgsConstructor;
 public enum LogTypeEnum {
 
     /**
-     * 正常日志类型
+     * Normal log.
      */
-    NORMAL("0", "正常日志"),
+    NORMAL("0", "normal log"),
 
     /**
-     * 错误日志类型
+     * Error log.
      */
-    ERROR("9", "错误日志");
+    ERROR("9", "error log");
 
     /**
-     * 类型
+     * type.
      */
     private final String type;
 
     /**
-     * 描述
+     * description.
      */
     private final String description;
 }

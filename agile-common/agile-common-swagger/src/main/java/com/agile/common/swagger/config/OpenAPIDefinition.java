@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Swagger配置。
+ * Swagger configuration class.
  *
  * @author Huang Z.Y.
  */
@@ -31,7 +31,7 @@ import java.util.List;
 public class OpenAPIDefinition extends OpenAPI implements InitializingBean, ApplicationContextAware {
 
     /**
-     * OpenAPI文档路径。
+     * Open API document path.
      */
     @Setter
     private String path;
@@ -39,10 +39,10 @@ public class OpenAPIDefinition extends OpenAPI implements InitializingBean, Appl
     private ApplicationContext applicationContext;
 
     /**
-     * 创建并返回OAuth2.0密码模式的安全方案。
+     * Create and return a security scheme for Auth 2.0 cryptographic mode.
      *
-     * @param swaggerProperties Swagger配置属性
-     * @return OAuth2.0密码模式的安全方案
+     * @param swaggerProperties Swagger configuration properties
+     * @return Auth 2.0 Security scheme in password mode
      */
     private SecurityScheme securityScheme(SwaggerProperties swaggerProperties) {
         OAuthFlow clientCredential = new OAuthFlow();
@@ -60,13 +60,13 @@ public class OpenAPIDefinition extends OpenAPI implements InitializingBean, Appl
     public void afterPropertiesSet() throws Exception {
         SwaggerProperties swaggerProperties = applicationContext.getBean(SwaggerProperties.class);
         this.info(new Info().title(swaggerProperties.getTitle()));
-        //  oauth2.0密码模式
+        //  oauth2.0 password
         this.schemaRequirement(HttpHeaders.AUTHORIZATION, this.securityScheme(swaggerProperties));
-        // 服务器信息
+        // servers
         List<Server> serverList = new ArrayList<>();
         serverList.add(new Server().url(swaggerProperties.getGateway() + "/" + path));
         this.servers(serverList);
-        // 支持参数平铺
+        // supports parameter tiling
         SpringDocUtils.getConfig().addSimpleTypesForParameterObject(Class.class);
     }
 
@@ -74,5 +74,6 @@ public class OpenAPIDefinition extends OpenAPI implements InitializingBean, Appl
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+    
 }
     

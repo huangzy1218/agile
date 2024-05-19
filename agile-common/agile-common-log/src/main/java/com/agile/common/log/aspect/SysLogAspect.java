@@ -2,11 +2,11 @@ package com.agile.common.log.aspect;
 
 import cn.hutool.core.util.StrUtil;
 import com.agile.common.core.util.SpringContextHolder;
-import com.agile.common.log.annotation.AgileLog;
-import com.agile.common.log.event.LogEvent;
-import com.agile.common.log.event.LogEventSource;
+import com.agile.common.log.annotation.SysLog;
+import com.agile.common.log.event.SysLogEvent;
+import com.agile.common.log.event.SysLogEventSource;
 import com.agile.common.log.util.LogTypeEnum;
-import com.agile.common.log.util.LogUtils;
+import com.agile.common.log.util.SysLogUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -17,44 +17,44 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.expression.EvaluationContext;
 
 /**
- * 操作日志使用SpringEvent异步入库。
+ * Operation logs are stored asynchronously using Spring Event.
  *
  * @author Huang Z.Y.
  */
 @Aspect
 @Slf4j
 @RequiredArgsConstructor
-public class LogAspect {
+public class SysLogAspect {
 
     @Around("@annotation(sysLog)")
     @SneakyThrows
-    public Object around(ProceedingJoinPoint point, AgileLog sysLog) {
+    public Object around(ProceedingJoinPoint point, SysLog sysLog) {
         String strClassName = point.getTarget().getClass().getName();
         String strMethodName = point.getSignature().getName();
         log.debug("[ClassName]:{},[Method]:{}", strClassName, strMethodName);
 
         String value = sysLog.value();
         String expression = sysLog.expression();
-        // 当前表达式存在 SPEL，会覆盖 value 的值
+        // The current expression has SpEL, which overrides the value of value
         if (StrUtil.isNotBlank(expression)) {
-            // 解析SPEL
+            // Parse SpEL
             MethodSignature signature = (MethodSignature) point.getSignature();
-            EvaluationContext context = LogUtils.getContext(point.getArgs(), signature.getMethod());
+            EvaluationContext context = SysLogUtils.getContext(point.getArgs(), signature.getMethod());
             try {
-                value = LogUtils.getValue(context, expression, String.class);
+                value = SysLogUtils.getValue(context, expression, String.class);
             } catch (Exception e) {
-                // SPEL 表达式异常，获取 value 的值
-                log.error("@AgileLog 解析SPEL {} 异常", expression);
+                // SpEL expression exception, get the value of value
+                log.error("@AgileLog resolve the SpEL {} exception", expression);
             }
         }
 
-        LogEventSource logVo = LogUtils.getSysLog();
+        SysLogEventSource logVo = SysLogUtils.getSysLog();
         logVo.setTitle(value);
-        // 获取请求body参数
+        // Gets the request body parameter
         if (StrUtil.isBlank(logVo.getParams())) {
             logVo.setBody(point.getArgs());
         }
-        // 发送异步日志事件
+        // Send asynchronous log events
         Long startTime = System.currentTimeMillis();
         Object obj;
 
@@ -67,10 +67,11 @@ public class LogAspect {
         } finally {
             Long endTime = System.currentTimeMillis();
             logVo.setTime(endTime - startTime);
-            SpringContextHolder.publishEvent(new LogEvent(logVo));
+            SpringContextHolder.publishEvent(new SysLogEvent(logVo));
         }
 
         return obj;
     }
+    
 }
     
