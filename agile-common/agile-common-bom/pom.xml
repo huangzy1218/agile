@@ -41,6 +41,7 @@
         <commons-compress>1.26.1</commons-compress>
         <spring.checkstyle.plugin>0.0.41</spring.checkstyle.plugin>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
         <spring-aspects.version>5.2.5.RELEASE</spring-aspects.version>
     </properties>
 
@@ -217,6 +218,11 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aspects</artifactId>
                 <version>${spring-aspects.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
