@@ -1,8 +1,7 @@
 package com.agile.plugin.excel.aop;
 
 import com.agile.plugin.excel.annotation.RequestExcel;
-import com.agile.plugin.excel.converter.LocalDateStringConverter;
-import com.agile.plugin.excel.converter.LocalDateTimeStringConverter;
+import com.agile.plugin.excel.converter.*;
 import com.agile.plugin.excel.handler.ListAnalysisEventListener;
 import com.alibaba.excel.EasyExcel;
 import lombok.SneakyThrows;
@@ -67,7 +66,7 @@ public class RequestExcelArgumentResolver implements HandlerMethodArgumentResolv
             inputStream = request.getInputStream();
         }
 
-        // Get target type
+        // Get target type (POJO class)
         Class<?> excelModelClass = ResolvableType.forMethodParameter(parameter).getGeneric(0).resolve();
 
         // Need to specify which class to read, and then read the first sheet file stream will automatically close
@@ -82,12 +81,14 @@ public class RequestExcelArgumentResolver implements HandlerMethodArgumentResolv
                 .headRowNumber(requestExcel.headRowNumber())
                 .doRead();
 
-        // 校验失败的数据处理 交给 BindResult
+        // Failed data process, submit to BindResult
         WebDataBinder dataBinder = webDataBinderFactory.createBinder(webRequest, readListener.getErrors(), "excel");
+        // ModelAndViewContainer takes over the data transfer and holds the Model and View
         ModelMap model = modelAndViewContainer.getModel();
         model.put(BindingResult.MODEL_KEY_PREFIX + "excel", dataBinder.getBindingResult());
 
         return readListener.getList();
     }
+
 }
     

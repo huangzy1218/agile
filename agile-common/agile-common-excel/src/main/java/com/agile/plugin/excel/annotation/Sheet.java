@@ -1,8 +1,12 @@
 package com.agile.plugin.excel.annotation;
 
+import com.agile.plugin.excel.head.HeadGenerator;
+
 import java.lang.annotation.*;
 
 /**
+ * Identifies the configuration associated with a Sheet of the Excel file.
+ *
  * @author Huang Z.Y.
  */
 @Documented
@@ -29,5 +33,10 @@ public @interface Sheet {
      * Exclude field.
      */
     String[] excludes() default {};
+
+    /**
+     * Head generator.
+     */
+    Class<? extends HeadGenerator> headGenerateClass() default HeadGenerator.class;
 
 }
