@@ -9,7 +9,7 @@ import com.agile.plugin.excel.enhance.WriterBuilderEnhancer;
 import com.agile.plugin.excel.head.HeadGenerator;
 import com.agile.plugin.excel.head.HeadMeta;
 import com.agile.plugin.excel.head.I18nHeaderCellWriteHandler;
-import com.agile.plugin.excel.kit.ExcelException;
+import com.agile.plugin.excel.util.ExcelException;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.converters.Converter;

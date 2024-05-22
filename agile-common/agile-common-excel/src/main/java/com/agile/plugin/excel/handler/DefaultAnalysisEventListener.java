@@ -1,7 +1,7 @@
 package com.agile.plugin.excel.handler;
 
 import com.agile.plugin.excel.annotation.ExcelLine;
-import com.agile.plugin.excel.kit.Validators;
+import com.agile.plugin.excel.util.Validators;
 import com.agile.plugin.excel.vo.ErrorMessage;
 import com.alibaba.excel.context.AnalysisContext;
 import jakarta.validation.ConstraintViolation;
