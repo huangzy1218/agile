@@ -28,82 +28,82 @@ public interface SecurityConstants {
     String FROM = "from";
 
     /**
-     * Default login URL
+     * Default login URL.
      */
     String OAUTH_TOKEN_URL = "/oauth2/token";
 
     /**
-     * grant_type
+     * Grant_type.
      */
     String REFRESH_TOKEN = "refresh_token";
 
     /**
-     * Password mode
+     * Password mode.
      */
     String PASSWORD = "password";
 
     /**
-     * Mobile phone login
+     * Mobile phone login.
      */
     String MOBILE = "mobile";
 
     /**
-     * {bcrypt} encrypted prefix
+     * {bcrypt} encrypted prefix.
      */
     String BCRYPT = "{bcrypt}";
 
     /**
-     * {noop} encrypted prefix
+     * {noop} encrypted prefix.
      */
     String NOOP = "{noop}";
 
     /**
-     * Username
+     * Username.
      */
     String USERNAME = "username";
 
     /**
-     * User information
+     * User information.
      */
     String DETAILS_USER = "user_info";
 
     /**
-     * User ID
+     * User ID.
      */
     String DETAILS_USER_ID = "user_id";
 
     /**
-     * License field
+     * License field.
      */
     String DETAILS_LICENSE = "license";
 
     /**
-     * Verification code validity period, default 60 seconds
+     * Verification code validity period, default 60 seconds.
      */
     long CODE_TIME = 60;
 
     /**
-     * Verification code length
+     * Verification code length.
      */
     String CODE_SIZE = "6";
 
     /**
-     * Client credentials mode
+     * Client credentials mode.
      */
     String CLIENT_CREDENTIALS = "client_credentials";
 
     /**
-     * Client ID
+     * Client ID.
      */
     String CLIENT_ID = "clientId";
 
     /**
-     * SMS login parameter name
+     * SMS login parameter name.
      */
     String SMS_PARAMETER_NAME = "mobile";
 
     /**
-     * Authorization code mode confirm
+     * Authorization code mode confirm.
      */
     String CUSTOM_CONSENT_PAGE_URI = "/token/confirm_access";
 

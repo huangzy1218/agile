@@ -53,7 +53,7 @@ public class AgileBearerTokenExtractor implements BearerTokenResolver {
      */
     private final PermitAllUrlProperties urlProperties;
 
-    public PigBearerTokenExtractor(PermitAllUrlProperties urlProperties) {
+    public AgileBearerTokenExtractor(PermitAllUrlProperties urlProperties) {
         this.urlProperties = urlProperties;
     }
 

@@ -10,11 +10,65 @@
     </parent>
 
     <artifactId>agile-auth</artifactId>
+    <packaging>jar</packaging>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <description>agile authentication authority, based on spring security oAuth2</description>
+
+    <dependencies>
+        <!-- Registry client -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!-- Configuration client -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <!-- Feign -->
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-common-feign</artifactId>
+        </dependency>
+        <!-- Upms api and model module -->
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-upms-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-common-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <!-- Freemarker -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <!-- Undertow container -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <!-- Log -->
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-common-log</artifactId>
+        </dependency>
+        <!-- Verification code core -->
+        <dependency>
+            <groupId>io.springboot.plugin</groupId>
+            <artifactId>captcha-core</artifactId>
+            <version>${captcha.version}</version>
+        </dependency>
+        <!--  Encryption and decryption  -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-crypto</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
