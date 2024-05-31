@@ -10,5 +10,9 @@ public interface CacheConstants {
      */
     String DEFAULT_CODE_KEY = "DEFAULT_CODE_KEY:";
 
+    /**
+     * Oauth client information.
+     */
+    String CLIENT_DETAILS_KEY = "client:details";
 }
     

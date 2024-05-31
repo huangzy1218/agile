@@ -17,14 +17,14 @@ import java.time.LocalDateTime;
  * @author Huang Z.Y.
  */
 @Data
-@Schema(description = "log")
+@Schema(description = "Log")
 public class SysLog implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 2691381L;
+    private static final long serialVersionUID = 2691386627L;
 
     /**
-     * id
+     * ID.
      */
     @TableId(type = IdType.ASSIGN_ID)
     @ExcelProperty("log id")

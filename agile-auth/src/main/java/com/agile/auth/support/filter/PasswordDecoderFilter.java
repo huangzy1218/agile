@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.util.Map;
 
 /**
+ * This filter intercepts login requests and decrypts the password parameter
+ * using AES encryption.
+ *
  * @author Huang Z.Y.
  */
 @Slf4j

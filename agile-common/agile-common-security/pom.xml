@@ -32,6 +32,11 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
+        <!-- UPMS API -->
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-upms-api</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
