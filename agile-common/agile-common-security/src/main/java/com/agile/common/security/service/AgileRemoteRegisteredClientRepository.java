@@ -1,11 +1,10 @@
 package com.agile.common.security.service;
 
-import cn.hutool.core.util.BooleanUtil;
-import cn.hutool.core.util.StrUtil;
 import com.agile.admin.api.entity.SysOauthClientDetails;
 import com.agile.admin.api.feign.RemoteClientDetailsService;
 import com.agile.common.core.constant.CacheConstants;
 import com.agile.common.core.constant.SecurityConstants;
+import com.agile.common.core.util.RetOps;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.cache.annotation.Cacheable;
@@ -15,12 +14,10 @@ import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.server.authorization.authentication.OAuth2AuthorizationCodeRequestAuthenticationException;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
-import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
 import org.springframework.security.oauth2.server.authorization.settings.TokenSettings;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.Optional;
 
 
@@ -79,7 +76,6 @@ public class AgileRemoteRegisteredClientRepository implements RegisteredClientRe
     @SneakyThrows
     @Cacheable(value = CacheConstants.CLIENT_DETAILS_KEY, key = "#clientId", unless = "#result == null")
     public RegisteredClient findByClientId(String clientId) {
-
         SysOauthClientDetails clientDetails = RetOps
                 .of(clientDetailsService.getClientDetailsById(clientId, SecurityConstants.FROM_IN))
                 .getData()
@@ -91,35 +87,20 @@ public class AgileRemoteRegisteredClientRepository implements RegisteredClientRe
                 .clientSecret(SecurityConstants.NOOP + clientDetails.getClientSecret())
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC);
 
+        // Add authorized grant types
         for (String authorizedGrantType : clientDetails.getAuthorizedGrantTypes()) {
             builder.authorizationGrantType(new AuthorizationGrantType(authorizedGrantType));
-
         }
-        // Callback address
-        Optional.ofNullable(clientDetails.getWebServerRedirectUri())
-                .ifPresent(redirectUri -> Arrays.stream(redirectUri.split(StrUtil.COMMA))
-                        .filter(StrUtil::isNotBlank)
-                        .forEach(builder::redirectUri));
 
-        // Scope
-        Optional.ofNullable(clientDetails.getScope())
-                .ifPresent(scope -> Arrays.stream(scope.split(StrUtil.COMMA))
-                        .filter(StrUtil::isNotBlank)
-                        .forEach(builder::scope));
-
+        // Build the RegisteredClient object with token
         return builder
                 .tokenSettings(TokenSettings.builder()
                         .accessTokenFormat(OAuth2TokenFormat.REFERENCE)
                         .accessTokenTimeToLive(Duration.ofSeconds(
-                                Optional.ofNullable(clientDetails.getAccessTokenValidity()).orElse(accessTokenValiditySeconds)))
+                                Optional.ofNullable(clientDetails.getAccessTokenValidity()).orElse(ACCESS_TOKEN_VALIDITY_SECONDS)))
                         .refreshTokenTimeToLive(Duration.ofSeconds(Optional.ofNullable(clientDetails.getRefreshTokenValidity())
                                 .orElse(REFRESH_TOKEN_VALIDITY_SECONDS)))
-                        .build())
-                .clientSettings(ClientSettings.builder()
-                        .requireAuthorizationConsent(!BooleanUtil.toBoolean(clientDetails.getAutoapprove()))
-                        .build())
-                .build();
-
+                        .build()).build();
     }
 
 }
