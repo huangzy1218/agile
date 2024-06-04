@@ -1,5 +1,6 @@
 package com.agile.admin.api.entity;
 
+import com.agile.common.core.constant.CommonConstants;
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -21,7 +22,7 @@ import java.time.LocalDateTime;
 public class SysOauthClientDetails extends Model<SysOauthClientDetails> {
 
     @Serial
-    private static final long serialVersionUID = 2691386627L;
+    private static final long serialVersionUID = CommonConstants.SERIAL_VERSION_UID;
 
     @TableId(value = "id", type = IdType.ASSIGN_ID)
     @Schema(description = "id")

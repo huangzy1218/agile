@@ -1,5 +1,7 @@
 package com.agile.common.core.exception;
 
+import com.agile.common.core.constant.CommonConstants;
+
 import java.io.Serial;
 
 /**
@@ -10,7 +12,7 @@ import java.io.Serial;
 public class ValidateCodeException extends RuntimeException {
 
     @Serial
-    private static final long serialVersionUID = 2691386627L;
+    private static final long serialVersionUID = CommonConstants.SERIAL_VERSION_UID;
 
     public ValidateCodeException() {
     }

@@ -11,30 +11,32 @@ production-level practices for Spring Authorization Server and supports multiple
 
 ```java
 agile
-        ├── agile-launch--Monolithic mode launcher[9999]
-        ├── agile-auth--Authorization service provider[3000]
-        └── agile-common--System common module
-     ├── agile-common-bom--Global dependency management control
-             ├── agile-common-core--Core package of common utility classes
-             ├── agile-common-datasource--Dynamic datasource package
-             ├── agile-common-log--Logging service
-             ├── agile-common-oss--File upload utility class
-             ├── agile-common-mybatis--MyBatis extension encapsulation
-             ├── agile-common-seata--Distributed transaction
-             ├── agile-common-security--Security utility class
-             ├── agile-common-swagger--Interface document
-             ├── agile-common-feign--Feign extension encapsulation
-             ├── agile-common-excel--EasyExcel encapsulation
-             └── agile-common-xss--XSS security encapsulation
-             ├── agile-register--Nacos Server[8848]
-             ├── agile-gateway--Spring Cloud Gateway gateway[9999]
-             └── agile-upms--Common user permission management module
-             └── agile-upms-api--Common user permission management system public API module
-             └── agile-upms-biz--Common user permission management system business processing module[4000]
-             └── agile-visual
-             └── agile-monitor--Service monitoring[5001]
-             ├── agile-codegen--Graphical code generation[5002]
-             └── agile-quartz--Timing task management platform[5007]
+├── agile-boot -- Standalone Mode Launcher [9999]
+├── agile-auth -- Authorization Service Provider [3000]
+└── agile-common -- System Common Module
+    ├── agile-common-excel -- Process Excel Files
+    ├── agile-common-bom -- Global Dependency Management
+    ├── agile-common-core -- Common Utilities Core Package
+    ├── agile-common-datasource -- Dynamic Data Source Package
+    ├── agile-common-log -- Logging Service
+    ├── agile-common-oss -- File Upload Utilities
+    ├── agile-common-mybatis -- MyBatis Extensions
+    ├── agile-common-seata -- Distributed Transactions
+    ├── agile-common-security -- Security Utilities
+    ├── agile-common-swagger -- API Documentation
+    ├── agile-common-feign -- Feign Extensions
+    └── agile-common-xss -- XSS Security Package
+├── agile-register -- Nacos Server [8848]
+├── agile-gateway -- Spring Cloud Gateway [9999]
+└── agile-upms -- General User Permission Management Module
+    ├── agile-upms-api -- General User Permission Management System Public API Module
+    └── agile-upms-biz -- General User Permission Management System Business Processing Module [4000]
+└── agile-visual
+    ├── agile-monitor -- Service Monitoring [5001]
+    ├── agile-codegen -- Graphical Code Generator [5002]
+    └── agile-quartz -- Scheduled Task Management [5007]
+
+
 ```
 
 ## Technology Selection

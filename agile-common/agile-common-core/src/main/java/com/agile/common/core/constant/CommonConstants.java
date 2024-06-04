@@ -77,5 +77,7 @@ public interface CommonConstants {
      */
     String REQUEST_START_TIME = "REQUEST-START-TIME";
 
+    Long SERIAL_VERSION_UID = 620L;
+
 }
     

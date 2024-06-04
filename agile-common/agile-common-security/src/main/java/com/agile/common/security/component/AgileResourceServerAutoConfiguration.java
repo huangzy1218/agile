@@ -43,6 +43,7 @@ public class AgileResourceServerAutoConfiguration {
      * @param securityMessageSource 自定义国际化处理器
      * @return ResourceAuthExceptionEntryPoint
      */
+    // todo
     @Bean
     public ResourceAuthExceptionEntryPoint resourceAuthExceptionEntryPoint(ObjectMapper objectMapper,
                                                                            MessageSource securityMessageSource) {

@@ -10,7 +10,7 @@ import java.io.Serial;
 public class ExcelException extends RuntimeException {
 
     @Serial
-    private static final long serialVersionUID = 2691386627L;
+    private static final long serialVersionUID = CommonConstants.SERIAL_VERSION_UID;
 
     public ExcelException(String message) {
         super(message);

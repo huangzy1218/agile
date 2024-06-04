@@ -1,5 +1,6 @@
 package com.agile.common.core.exception;
 
+import com.agile.common.core.constant.CommonConstants;
 import lombok.NoArgsConstructor;
 
 import java.io.Serial;
@@ -13,7 +14,7 @@ import java.io.Serial;
 public class SystemDeniedException extends RuntimeException {
 
     @Serial
-    private static final long serialVersionUID = 2691386627L;
+    private static final long serialVersionUID = CommonConstants.SERIAL_VERSION_UID;
 
     public SystemDeniedException(String message) {
         super(message);

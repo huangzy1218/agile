@@ -19,7 +19,7 @@ import java.io.Serializable;
 public class R<T> implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 2691386627L;
+    private static final long serialVersionUID = CommonConstants.SERIAL_VERSION_UID;
 
     @Getter
     @Setter
@@ -68,6 +68,6 @@ public class R<T> implements Serializable {
         apiResult.setMsg(msg);
         return apiResult;
     }
-    
+
 }
     

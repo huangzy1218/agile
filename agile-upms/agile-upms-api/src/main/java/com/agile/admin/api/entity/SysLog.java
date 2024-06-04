@@ -1,5 +1,6 @@
 package com.agile.admin.api.entity;
 
+import com.agile.common.core.constant.CommonConstants;
 import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.*;
@@ -21,7 +22,7 @@ import java.time.LocalDateTime;
 public class SysLog implements Serializable {
 
     @Serial
-    private static final long serialVersionUID = 2691386627L;
+    private static final long serialVersionUID = CommonConstants.SERIAL_VERSION_UID;
 
     /**
      * ID.

@@ -3,6 +3,7 @@ package com.agile.common.core.util;
 import cn.hutool.core.codec.Base64;
 import com.agile.common.core.exception.CheckedException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.constraints.NotNull;
 import lombok.SneakyThrows;
 import lombok.experimental.UtilityClass;
@@ -22,7 +23,7 @@ import java.util.Optional;
  */
 @Slf4j
 @UtilityClass
-public class WebUtils {
+public class WebUtils extends org.springframework.web.util.WebUtils {
 
     private final String BASIC_ = "Basic ";
 
@@ -78,6 +79,15 @@ public class WebUtils {
             throw new CheckedException("Invalid basic authentication token");
         }
         return new String[]{token.substring(0, delim), token.substring(delim + 1)};
+    }
+
+    /**
+     * Get {@link HttpServletResponse}.
+     *
+     * @return HttpServletResponse
+     */
+    public HttpServletResponse getResponse() {
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();
     }
 
 }

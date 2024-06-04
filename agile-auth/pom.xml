@@ -69,6 +69,10 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-crypto</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-common-core</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
