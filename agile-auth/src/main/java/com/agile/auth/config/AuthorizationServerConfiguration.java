@@ -2,6 +2,8 @@ package com.agile.auth.config;
 
 import com.agile.auth.handler.AgileAuthenticationFailureEventHandler;
 import com.agile.auth.handler.AgileAuthenticationSuccessEventHandler;
+import com.agile.auth.support.core.AgileOAuth2AccessTokenGenerator;
+import com.agile.auth.support.core.AgileOAuth2TokenCustomizer;
 import com.agile.auth.support.core.FormIdentityLoginConfigurer;
 import com.agile.auth.support.filter.PasswordDecoderFilter;
 import com.agile.auth.support.filter.ValidateCodeFilter;
@@ -19,6 +21,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.oauth2.server.authorization.OAuth2AuthorizationService;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
@@ -41,6 +44,7 @@ import java.util.Arrays;
  */
 @Configuration
 @RequiredArgsConstructor
+@EnableWebSecurity
 public class AuthorizationServerConfiguration {
 
     private final OAuth2AuthorizationService authorizationService;
@@ -72,7 +76,8 @@ public class AuthorizationServerConfiguration {
                 }).clientAuthentication(oAuth2ClientAuthenticationConfigurer ->
                         // Handle client authentication exception
                         oAuth2ClientAuthenticationConfigurer.errorResponseHandler(new AgileAuthenticationFailureEventHandler()))
-                .authorizationEndpoint(authorizationEndpoint -> authorizationEndpoint// 授权码端点个性化confirm页面
+                // Authorization code endpoint personalization confirm page
+                .authorizationEndpoint(authorizationEndpoint -> authorizationEndpoint
                         .consentPage(SecurityConstants.CUSTOM_CONSENT_PAGE_URI)), Customizer.withDefaults());
 
         // Define request matchers for endpoints that should be permitted without authentication
@@ -87,9 +92,10 @@ public class AuthorizationServerConfiguration {
                     authorizeRequests.requestMatchers(requestMatchers).permitAll();
                     authorizeRequests.anyRequest().authenticated();
                 })
-                .with(authorizationServerConfigurer.authorizationService(authorizationService)// redis存储token的实现
+                // Implementation of redis storage token
+                .with(authorizationServerConfigurer.authorizationService(authorizationService)
                                 .authorizationServerSettings(
-                                        AuthorizationServerSettings.builder().issuer(SecurityConstants.PROJECT_LICENSE).build()),
+                                        AuthorizationServerSettings.builder().build()),
                         Customizer.withDefaults());
         // Configure form-based login
         http.with(new FormIdentityLoginConfigurer(), Customizer.withDefaults());
@@ -109,9 +115,9 @@ public class AuthorizationServerConfiguration {
      */
     @Bean
     public OAuth2TokenGenerator oAuth2TokenGenerator() {
-        CustomeOAuth2AccessTokenGenerator accessTokenGenerator = new CustomeOAuth2AccessTokenGenerator();
+        AgileOAuth2AccessTokenGenerator accessTokenGenerator = new AgileOAuth2AccessTokenGenerator();
         // Add a Token adds the associated user information
-        accessTokenGenerator.setAccessTokenCustomizer(new CustomeOAuth2TokenCustomizer());
+        accessTokenGenerator.setAccessTokenCustomizer(new AgileOAuth2TokenCustomizer());
         return new DelegatingOAuth2TokenGenerator(accessTokenGenerator, new OAuth2RefreshTokenGenerator());
     }
 
@@ -146,8 +152,6 @@ public class AuthorizationServerConfiguration {
         OAuth2ResourceOwnerSmsAuthenticationProvider resourceOwnerSmsAuthenticationProvider = new OAuth2ResourceOwnerSmsAuthenticationProvider(
                 authenticationManager, authorizationService, oAuth2TokenGenerator());
 
-        // Handle UsernamePasswordAuthenticationToken
-        http.authenticationProvider(new PigDaoAuthenticationProvider());
         // Handle OAuth2ResourceOwnerPasswordAuthenticationToken
         http.authenticationProvider(resourceOwnerPasswordAuthenticationProvider);
         // Handle OAuth2ResourceOwnerSmsAuthenticationToken

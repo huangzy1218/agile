@@ -1,6 +1,7 @@
 package com.agile.auth.support.core;
 
 import com.agile.auth.handler.FormAuthenticationFailureHandler;
+import com.agile.auth.handler.SsoLogoutSuccessHandler;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 
