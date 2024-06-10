@@ -36,5 +36,6 @@ public class PermissionService {
                 .filter(StringUtils::hasText)
                 .anyMatch(x -> PatternMatchUtils.simpleMatch(permissions, x));
     }
+    
 }
     

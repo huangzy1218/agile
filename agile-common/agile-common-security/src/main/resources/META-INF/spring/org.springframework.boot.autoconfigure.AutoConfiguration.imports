@@ -1,1 +1,4 @@
 com.agile.common.security.service.AgileRemoteRegisteredClientRepository
+com.agile.common.security.service.AgileRedisOAuth2AuthorizationService
+com.agile.common.security.service.AgileUserDetailsServiceImpl
+com.agile.common.security.component.AgileSecurityMessageSourceConfiguration

@@ -1,4 +1,4 @@
-package com.agile.auth.config;
+package com.agile.monitor.config;
 
 import de.codecentric.boot.admin.server.config.AdminServerProperties;
 import jakarta.servlet.DispatcherType;
@@ -36,7 +36,7 @@ public class SecuritySecureConfiguration {
 
     private final SecurityProperties security;
 
-    public SecuritySecureConfig(AdminServerProperties adminServer, SecurityProperties security) {
+    public SecuritySecureConfiguration(AdminServerProperties adminServer, SecurityProperties security) {
         this.adminServer = adminServer;
         this.security = security;
     }

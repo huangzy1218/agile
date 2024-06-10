@@ -41,12 +41,12 @@
         <commons-compress>1.26.1</commons-compress>
         <spring.checkstyle.plugin>0.0.41</spring.checkstyle.plugin>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
-        <servlet-api.version>bU4.0.1</servlet-api.version>
+        <servlet-api.version>4.0.1</servlet-api.version>
         <spring-aspects.version>5.2.5.RELEASE</spring-aspects.version>
         <spring-boot-admin-starter.version>2.5.0</spring-boot-admin-starter.version>
     </properties>
 
-    <!-- 定义全局jar版本 -->
+    <!-- Define the global jar version -->
     <dependencyManagement>
         <dependencies>
             <dependency>

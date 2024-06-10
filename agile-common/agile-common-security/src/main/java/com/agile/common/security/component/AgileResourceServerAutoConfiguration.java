@@ -50,14 +50,15 @@ public class AgileResourceServerAutoConfiguration {
     }
 
     /**
-     * 资源服务器toke内省处理器
+     * Resource server toke introspection processor.
      *
-     * @param authorizationService token 存储实现
+     * @param authorizationService Authorization service
      * @return TokenIntrospector
      */
     @Bean
     public OpaqueTokenIntrospector opaqueTokenIntrospector(OAuth2AuthorizationService authorizationService) {
-        return new PigCustomOpaqueTokenIntrospector(authorizationService);
+        return new AgileCustomOpaqueTokenIntrospector(authorizationService);
     }
+    
 }
     
