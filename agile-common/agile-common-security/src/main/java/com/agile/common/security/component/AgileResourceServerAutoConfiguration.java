@@ -37,13 +37,12 @@ public class AgileResourceServerAutoConfiguration {
     }
 
     /**
-     * 资源服务器异常处理
+     * Resource server toke introspection processor.
      *
-     * @param objectMapper          jackson 输出对象
-     * @param securityMessageSource 自定义国际化处理器
+     * @param objectMapper          Jackson output object
+     * @param securityMessageSource Custom internationalization processor
      * @return ResourceAuthExceptionEntryPoint
      */
-    // todo
     @Bean
     public ResourceAuthExceptionEntryPoint resourceAuthExceptionEntryPoint(ObjectMapper objectMapper,
                                                                            MessageSource securityMessageSource) {

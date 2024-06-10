@@ -14,5 +14,11 @@ public interface CacheConstants {
      * Oauth client information.
      */
     String CLIENT_DETAILS_KEY = "client:details";
+
+    /**
+     * User information cache.
+     */
+    String USER_DETAILS = "user_details";
+
 }
     

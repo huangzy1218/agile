@@ -39,6 +39,14 @@
     <file url="file://$PROJECT_DIR$/agile-upms/agile-upms-biz/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/agile-upms/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/agile-upms/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/agile-codegen/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/agile-codegen/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/agile-monitor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/agile-monitor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/agile-quartz/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/agile-quartz/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/agile-visual/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
   </component>

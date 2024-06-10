@@ -17,6 +17,10 @@
         <module>agile-register</module>
         <module>agile-upms</module>
         <module>agile-common/agile-common-excel</module>
+        <module>agile-visual</module>
+        <module>agile-visual/agile-codegen</module>
+        <module>agile-visual/agile-quartz</module>
+        <module>agile-visual/agile-monitor</module>
     </modules>
 
     <properties>
