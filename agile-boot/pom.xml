@@ -12,7 +12,7 @@
     <artifactId>agile-boot</artifactId>
     <packaging>jar</packaging>
 
-    <description>pig monomer version starts</description>
+    <description>Agile monomer version starts</description>
 
     <dependencies>
         <dependency>

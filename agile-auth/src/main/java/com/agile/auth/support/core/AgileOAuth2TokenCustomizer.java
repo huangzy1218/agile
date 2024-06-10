@@ -28,10 +28,10 @@ public class AgileOAuth2TokenCustomizer implements OAuth2TokenCustomizer<OAuth2T
             return;
         }
 
-        AgileUser pigUser = (AgileUser) context.getPrincipal().getPrincipal();
-        claims.claim(SecurityConstants.DETAILS_USER, pigUser);
-        claims.claim(SecurityConstants.DETAILS_USER_ID, pigUser.getId());
-        claims.claim(SecurityConstants.USERNAME, pigUser.getUsername());
+        AgileUser agileUser = (AgileUser) context.getPrincipal().getPrincipal();
+        claims.claim(SecurityConstants.DETAILS_USER, agileUser);
+        claims.claim(SecurityConstants.DETAILS_USER_ID, agileUser.getId());
+        claims.claim(SecurityConstants.USERNAME, agileUser.getUsername());
     }
 
 }

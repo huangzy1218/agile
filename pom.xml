@@ -185,7 +185,7 @@
                         </authConfig>
                         <images>
                             <image>
-                                <!-- 镜像名称： 172.17.0.111/library/pig-gateway:2.6.3-->
+                                <!-- 镜像名称： 172.17.0.111/library/agile-gateway:2.6.3-->
                                 <name>${docker.registry}/${docker.namespace}/${project.name}:${project.version}</name>
                                 <build>
                                     <dockerFile>${project.basedir}/Dockerfile</dockerFile>

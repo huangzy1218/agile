@@ -10,8 +10,9 @@
     </parent>
 
     <artifactId>agile-upms</artifactId>
-    <description>agile general user rights management aggregation module</description>
     <packaging>pom</packaging>
+
+    <description>Agile general user rights management aggregation module</description>
     <modules>
         <module>agile-upms-api</module>
         <module>agile-upms-biz</module>

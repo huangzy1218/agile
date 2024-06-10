@@ -29,7 +29,7 @@ public class AgileResourceServerConfiguration {
 
     private final PermitAllUrlProperties permitAllUrl;
 
-    private final AgileBearerTokenExtractor pigBearerTokenExtractor;
+    private final AgileBearerTokenExtractor agileBearerTokenExtractor;
 
     private final OpaqueTokenIntrospector customOpaqueTokenIntrospector;
 
@@ -49,7 +49,7 @@ public class AgileResourceServerConfiguration {
                 .oauth2ResourceServer(
                         oauth2 -> oauth2.opaqueToken(token -> token.introspector(customOpaqueTokenIntrospector))
                                 .authenticationEntryPoint(resourceAuthExceptionEntryPoint)
-                                .bearerTokenResolver(pigBearerTokenExtractor))
+                                .bearerTokenResolver(agileBearerTokenExtractor))
                 .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
                 .csrf(AbstractHttpConfigurer::disable);
 

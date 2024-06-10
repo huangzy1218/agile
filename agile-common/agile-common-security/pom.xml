@@ -12,6 +12,8 @@
     <artifactId>agile-common-security</artifactId>
     <packaging>jar</packaging>
 
+    <description>Agile security tools</description>
+
     <dependencies>
         <dependency>
             <!-- Tool class core package -->

@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>agile-common-excel</artifactId>
-    <description>easy and high performance excel</description>
+    <description>Agile easy and high performance excel</description>
 
     <dependencies>
         <dependency>

@@ -10,5 +10,8 @@
     </parent>
 
     <artifactId>agile-common-seata</artifactId>
+    <packaging>jar</packaging>
+
+    <description>Agile distributed transaction processing module</description>
 
 </project>

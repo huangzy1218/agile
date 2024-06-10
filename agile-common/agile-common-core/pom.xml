@@ -12,6 +12,7 @@
     <artifactId>agile-common-core</artifactId>
     <packaging>jar</packaging>
 
+    <description>Agile public utility class core package</description>
     <dependencies>
         <!-- hutool -->
         <dependency>

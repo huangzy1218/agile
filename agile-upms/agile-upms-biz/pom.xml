@@ -10,5 +10,7 @@
     </parent>
 
     <artifactId>agile-upms-biz</artifactId>
+    <packaging>jar</packaging>
 
+    <description>Agile general user rights management system business processing module</description>
 </project>

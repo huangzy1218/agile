@@ -10,5 +10,7 @@
     </parent>
 
     <artifactId>agile-common-oss</artifactId>
+    <packaging>jar</packaging>
 
+    <description>Agile file system dependency</description>
 </project>

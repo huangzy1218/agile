@@ -12,6 +12,8 @@
     <artifactId>agile-common-log</artifactId>
     <packaging>jar</packaging>
 
+    <description>Agile logging service</description>
+    
     <dependencies>
         <!-- Tool class core package -->
         <dependency>

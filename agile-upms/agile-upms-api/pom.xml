@@ -10,7 +10,9 @@
     </parent>
 
     <artifactId>agile-upms-api</artifactId>
-    <description>agile eneral user rights management system public api module</description>
+    <packaging>jar</packaging>
+
+    <description>Agile general user rights management system public api module</description>
 
     <dependencies>
         <!-- Tool class core package -->
@@ -33,7 +35,6 @@
         <dependency>
             <groupId>com.agile</groupId>
             <artifactId>agile-common-excel</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

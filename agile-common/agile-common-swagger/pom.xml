@@ -10,20 +10,23 @@
     </parent>
 
     <artifactId>agile-common-swagger</artifactId>
+    <packaging>jar</packaging>
+
+    <description>Agile interface document</description>
 
     <dependencies>
-        <!--接口文档-->
+        <!-- Spring doc -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
         </dependency>
-        <!--webflux 相关包-->
+        <!-- Webflux correlation package -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webflux</artifactId>
             <scope>provided</scope>
         </dependency>
-        <!--网关 swagger 聚合依赖-->
+        <!-- Gateway swagger -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-gateway-server</artifactId>

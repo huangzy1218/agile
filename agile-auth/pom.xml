@@ -12,7 +12,7 @@
     <artifactId>agile-auth</artifactId>
     <packaging>jar</packaging>
 
-    <description>agile authentication authority, based on spring security oAuth2</description>
+    <description>Agile authentication authority, based on spring security oAuth2</description>
 
     <dependencies>
         <!-- Registry client -->

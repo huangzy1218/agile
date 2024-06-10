@@ -9,9 +9,10 @@
         <version>${revision}</version>
     </parent>
 
-    <packaging>jar</packaging>
     <artifactId>agile-common-feign</artifactId>
-    <description>Feign-sentinel service degrades fuse and current limiting components</description>
+    <packaging>jar</packaging>
+
+    <description>Agile feign-sentinel service degrades fuse and current limiting components</description>
 
     <dependencies>
         <dependency>

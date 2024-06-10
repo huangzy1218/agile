@@ -6,12 +6,14 @@
     <parent>
         <groupId>com.agile</groupId>
         <artifactId>agile</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${revision}</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.ethan</groupId>
     <artifactId>agile-quartz</artifactId>
+    <packaging>jar</packaging>
+
+    <description>Agile background scheduled task</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

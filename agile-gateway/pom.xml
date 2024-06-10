@@ -12,6 +12,8 @@
     <artifactId>agile-gateway</artifactId>
     <packaging>jar</packaging>
 
+    <description>Agile service gateway</description>
+
     <dependencies>
         <!-- Gateway Indicates the gateway dependency -->
         <dependency>

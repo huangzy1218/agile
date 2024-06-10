@@ -10,8 +10,9 @@
     </parent>
 
     <artifactId>agile-common-mybatis</artifactId>
-    <description>agile mybatis encapsulation</description>
     <packaging>jar</packaging>
+
+    <description>Agile mybatis encapsulation</description>
 
     <dependencies>
         <!-- hutool -->
