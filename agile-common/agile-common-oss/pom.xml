@@ -13,4 +13,16 @@
     <packaging>jar</packaging>
 
     <description>Agile file system dependency</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>${aws.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
+    </dependencies>
 </project>
