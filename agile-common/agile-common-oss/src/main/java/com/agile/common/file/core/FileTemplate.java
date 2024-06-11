@@ -28,6 +28,8 @@ public interface FileTemplate extends InitializingBean {
     List<Bucket> getAllBuckets();
 
     /**
+     * Remove a bucket by bucket name.
+     *
      * @param bucketName Bucket name.
      */
     void removeBucket(String bucketName);

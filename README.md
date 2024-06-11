@@ -1,6 +1,7 @@
 # Agile
 
-![](https://img.shields.io/badge/agile-dev-blue#id=rjaDQ&originHeight=20&originWidth=66&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) ![](https://img.shields.io/github/languages/top/huangzy1218/agile#id=g42nJ&originHeight=20&originWidth=86&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) ![](https://img.shields.io/github/last-commit/huangzy1218/agile#id=dQ6Hu&originHeight=20&originWidth=140&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](https://img.shields.io/badge/agile-dev-blue#id=rjaDQ&originHeight=20&originWidth=66&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) ![Static Badge](https://img.shields.io/badge/author-Huang%20Z.Y.-blue)
+![](https://img.shields.io/github/languages/top/huangzy1218/agile#id=g42nJ&originHeight=20&originWidth=86&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) ![](https://img.shields.io/github/last-commit/huangzy1218/agile#id=dQ6Hu&originHeight=20&originWidth=140&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
 
 ## Project Introduction
 
@@ -35,8 +36,7 @@ agile
     ├── agile-monitor -- Service Monitoring [5001]
     ├── agile-codegen -- Graphical Code Generator [5002]
     └── agile-quartz -- Scheduled Task Management [5007]
-
-
+└── agile-test -- Test the project
 ```
 
 ## Technology Selection
