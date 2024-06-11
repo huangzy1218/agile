@@ -1,6 +1,8 @@
 package com.agile.common.file.local;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -10,6 +12,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Data
 @ConfigurationProperties(prefix = "local")
+@AllArgsConstructor
+@NoArgsConstructor
 public class LocalFileProperties {
 
     /**

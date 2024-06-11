@@ -2,7 +2,9 @@ package com.agile.common.file.core;
 
 import com.agile.common.file.local.LocalFileProperties;
 import com.agile.common.file.oss.OssProperties;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -12,6 +14,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Data
 @ConfigurationProperties(prefix = "file")
+@AllArgsConstructor
+@NoArgsConstructor
 public class FileProperties {
 
     /**

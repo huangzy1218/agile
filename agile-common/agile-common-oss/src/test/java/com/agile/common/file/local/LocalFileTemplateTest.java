@@ -1,14 +1,21 @@
 package com.agile.common.file.local;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 /**
  * @author Huang Z.Y.
  */
+@SpringBootTest
 class LocalFileTemplateTest {
+
+    @Autowired
+    private LocalFileTemplate localFileTemplate;
 
     @Test
     void createBucketTest() {
+
     }
 
     @Test
@@ -38,5 +45,5 @@ class LocalFileTemplateTest {
     @Test
     void getAllObjectsByPrefixTest() {
     }
-    
+
 }

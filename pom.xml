@@ -21,6 +21,7 @@
         <module>agile-visual/agile-codegen</module>
         <module>agile-visual/agile-quartz</module>
         <module>agile-visual/agile-monitor</module>
+        <module>agile-test</module>
     </modules>
 
     <properties>

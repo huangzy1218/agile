@@ -5,6 +5,7 @@ import com.agile.common.file.core.FileTemplate;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Bean;
  * @author Huang Z.Y.
  */
 @AllArgsConstructor
+@EnableConfigurationProperties({LocalFileProperties.class})
 public class LocalFileAutoConfiguration {
 
     private final FileProperties properties;
