@@ -60,13 +60,13 @@ public class OpenAPIDefinition extends OpenAPI implements InitializingBean, Appl
     public void afterPropertiesSet() throws Exception {
         SwaggerProperties swaggerProperties = applicationContext.getBean(SwaggerProperties.class);
         this.info(new Info().title(swaggerProperties.getTitle()));
-        //  oauth2.0 password
+        //  Oauth2.0 password
         this.schemaRequirement(HttpHeaders.AUTHORIZATION, this.securityScheme(swaggerProperties));
-        // servers
+        // Servers
         List<Server> serverList = new ArrayList<>();
         serverList.add(new Server().url(swaggerProperties.getGateway() + "/" + path));
         this.servers(serverList);
-        // supports parameter tiling
+        // Supports parameter tiling
         SpringDocUtils.getConfig().addSimpleTypesForParameterObject(Class.class);
     }
 
@@ -74,6 +74,6 @@ public class OpenAPIDefinition extends OpenAPI implements InitializingBean, Appl
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
-    
+
 }
     

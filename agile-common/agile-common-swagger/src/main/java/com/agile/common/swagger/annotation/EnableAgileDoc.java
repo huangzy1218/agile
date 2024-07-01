@@ -24,7 +24,7 @@ import java.lang.annotation.*;
 public @interface EnableAgileDoc {
 
     /**
-     * Gateway route prefix
+     * Gateway route prefix.
      */
     String value();
 

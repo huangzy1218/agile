@@ -2,6 +2,7 @@ package com.agile.plugin.excel.read;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;
+import lombok.ToString;
 
 /**
  * Specifies the column subscript or column name test entity.
@@ -9,6 +10,7 @@ import lombok.Data;
  * @author Huang Z.Y.
  */
 @Data
+@ToString
 public class IndexData {
 
     /**

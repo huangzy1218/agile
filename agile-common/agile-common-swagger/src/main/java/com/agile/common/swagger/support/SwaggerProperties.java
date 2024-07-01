@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Swagger configuration items。
+ * Swagger configuration items.
  *
  * @author Huang Z.Y.
  */

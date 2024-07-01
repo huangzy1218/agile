@@ -47,5 +47,6 @@ public class OpenAPIMetadataConfig implements InitializingBean, ApplicationConte
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+    
 }
     
