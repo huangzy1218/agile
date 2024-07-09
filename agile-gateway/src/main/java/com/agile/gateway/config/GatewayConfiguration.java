@@ -17,7 +17,7 @@ public class GatewayConfiguration {
     /**
      * Create a {@link AgileRequestGlobalFilter}.
      *
-     * @return PigRequest global filter
+     * @return AgileRequest global filter
      */
     @Bean
     public AgileRequestGlobalFilter agileRequestGlobalFilter() {

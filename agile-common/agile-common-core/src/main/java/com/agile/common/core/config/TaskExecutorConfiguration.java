@@ -42,16 +42,16 @@ public class TaskExecutorConfiguration implements AsyncConfigurer {
     @Bean
     public Executor getAsyncExecutor() {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
-        // core thread size number of cpus in the default area
+        // Core thread size number of cpus in the default area
         taskExecutor.setCorePoolSize(corePoolSize.orElse(cpuNum));
-        // maximum thread size default area CPU 2 number of cpus
+        // Maximum thread size default area CPU 2 number of cpus
         taskExecutor.setMaxPoolSize(maxPoolSize.orElse(cpuNum * 2));
-        // maximum queue capacity
+        // Maximum queue capacity
         taskExecutor.setQueueCapacity(queueCapacity.orElse(500));
         taskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         taskExecutor.setWaitForTasksToCompleteOnShutdown(true);
         taskExecutor.setAwaitTerminationSeconds(awaitTerminationSeconds.orElse(60));
-        taskExecutor.setThreadNamePrefix("PIG-Thread-");
+        taskExecutor.setThreadNamePrefix("AGILE-Thread-");
         taskExecutor.initialize();
         return taskExecutor;
     }
