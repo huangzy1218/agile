@@ -56,7 +56,7 @@ public class SysOauthClientDetails extends Model<SysOauthClientDetails> {
     private String scope;
 
     /**
-     * Authorization mode[A,B,C]
+     * Authorization mode[MybatisPlusMetaObjectHandler,B,C]
      */
     @Schema(description = "Authorization mode")
     private String[] authorizedGrantTypes;

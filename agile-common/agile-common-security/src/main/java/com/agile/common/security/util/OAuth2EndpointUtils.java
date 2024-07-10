@@ -29,7 +29,7 @@ public class OAuth2EndpointUtils {
      * Extracts parameters from the {@link HttpServletRequest} and converts them into a MultiValueMap.
      *
      * @param request Http request
-     * @return A MultiValueMap containing the request parameters
+     * @return MybatisPlusMetaObjectHandler MultiValueMap containing the request parameters
      */
     public MultiValueMap<String, String> getParameters(HttpServletRequest request) {
         Map<String, String[]> parameterMap = request.getParameterMap();

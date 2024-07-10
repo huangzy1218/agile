@@ -100,7 +100,7 @@ public abstract class OAuth2ResourceOwnerBaseAuthenticationProvider<T extends OA
      * {@link AuthenticationManager#authenticate(Authentication)} .
      *
      * @param authentication The authentication request object
-     * @return A fully authenticated object including credentials
+     * @return MybatisPlusMetaObjectHandler fully authenticated object including credentials
      * @throws AuthenticationException if authentication fails.
      */
     @SuppressWarnings("unchecked")
