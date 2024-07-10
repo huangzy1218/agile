@@ -46,7 +46,7 @@ public class AgileNacosApplication {
         System.setProperty(ConfigConstants.AUTH_ENABLED, "true");
         System.setProperty(ConfigConstants.LOG_BASEDIR, "logs");
         System.setProperty(ConfigConstants.LOG_ENABLED, "false");
-        System.setProperty(ConfigConstants.NACOS_CONTEXT_PATH, "/com/alibaba/nacos");
+//        System.setProperty(ConfigConstants.NACOS_CONTEXT_PATH, "/com/alibaba/nacos");
         return true;
     }
 

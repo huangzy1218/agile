@@ -3,21 +3,26 @@ server:
 
 spring:
   application:
-    name: '@artifactId@'
+    name: @project.build.sourceEncoding@
   cloud:
     nacos:
-      username: '@nacos.username@'
-      password: '@nacos.password@'
+      username: @nacos.username@
+      password: @nacos.password@
       discovery:
         server-addr: ${NACOS_HOST:agile-register}:${NACOS_PORT:8848}
+        username: @nacos.username@
+        password: @nacos.password@
         watch:
           enabled: true
         watch-delay: 1000
       config:
-        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        server-addr: ${NACOS_HOST:agile-register}:${NACOS_PORT:8848}
+        username: @nacos.username@
+        password: @nacos.password@
+        file-extension: yml
   config:
     import:
-      - optional:nacos:application-'@profiles.active@'.yml
+      - optional:nacos:application-@profiles.active@.yml
       - optional:nacos:${spring.application.name}-@profiles.active@.yml
 
 
