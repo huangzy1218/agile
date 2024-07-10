@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Jul 10 09:14:25 CST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0190-9a34-b33a-0000015a70c0 
+on database directory memory:D:\project\agile\6559ee14-f564-405f-b706-6d2a28f0296d with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5e481248 
+Loaded from file:/C:/Users/MI/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Azul Systems, Inc.
+java.runtime.version=17.0.11+9-LTS
+user.dir=D:\project\agile
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
