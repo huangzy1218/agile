@@ -170,3 +170,9 @@ pagile-common/agile-common-mybatis/src/main/java/com/agile/common/mybatis/resolv
 nagile-common/agile-common-mybatis/src/main/java/com/agile/common/mybatis/handler/JsonLongArrayTypeHandler.java,3\5\355a13435db4d83f4bed0e8d443f579af25070c1
  
 pagile-common/agile-common-mybatis/src/main/java/com/agile/common/mybatis/handler/JsonStringArrayTypeHandler.java,9\3\930c95f6573926fceb96f29890b90beb70083e1e
+œ
+lagile-common/agile-common-feign/src/main/java/com/agile/common/feign/sentinel/handle/GlobalBizException.java,4\b\4b4ee29d5ea6affb2a51dea3d4bae956470be5ad
+£
+sagile-common/agile-common-feign/src/main/java/com/agile/common/feign/sentinel/handle/GlobalBizExceptionHandler.java,5\1\51b637471f41c2bfa150b3c3a5ee50a40ffa49bd
+ž
+nagile-common/agile-common-feign/src/main/java/com/agile/common/feign/sentinel/handle/AgileUrlBlockHandler.java,a\b\ab6bb6ce52a5e275bb1872aa379ae312edbf377d
