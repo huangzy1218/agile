@@ -36,7 +36,6 @@ agile
     ├── agile-monitor -- Service Monitoring [5001]
     ├── agile-codegen -- Graphical Code Generator [5002]
     └── agile-quartz -- Scheduled Task Management [5007]
-└── agile-test -- Test the project
 ```
 
 ## Technology Selection

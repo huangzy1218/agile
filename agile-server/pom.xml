@@ -20,5 +20,9 @@
             <artifactId>agile-common-swagger</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>com.agile</groupId>
+            <artifactId>agile-upms-biz</artifactId>
+        </dependency>
     </dependencies>
 </project>

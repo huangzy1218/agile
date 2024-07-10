@@ -9,7 +9,7 @@ db:
   user: ${MYSQL_USER:root}
   password: ${MYSQL_PWD:root}
   url:
-    0: jdbc:mysql://${MYSQL_HOST:39.107.235.5}:${MYSQL_PORT:3306}/${MYSQL_DB:agile}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+    0: jdbc:mysql://${MYSQL_HOST:agile-mysql}:${MYSQL_PORT:3306}/${MYSQL_DB:agile}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
   pool:
     config:
       connectionTimeout: 30000
