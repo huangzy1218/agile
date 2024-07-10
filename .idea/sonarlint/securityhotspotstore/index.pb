@@ -142,3 +142,15 @@ iagile-common/agile-common-excel/src/main/java/com/agile/plugin/excel/head/I18nH
 jagile-common/agile-common-excel/src/main/java/com/agile/plugin/excel/config/ExcelHandlerConfiguration.java,2\4\24faf7bd9b9151b00251c91bf22ae08ac95e1b0a
 ≤
 Åagile-common/agile-common-security/src/main/java/com/agile/common/security/component/AgileSecurityMessageSourceConfiguration.java,9\9\9959a82e27bd8de144e4762aea56156450311d1a
+ã
+[agile-upms/agile-upms-biz/src/main/java/com/agile/admin/controller/SysClientController.java,2\6\2642a1f2782aaf6be6b4c8d0fdb53dfd0d734b37
+ë
+aagile-upms/agile-upms-biz/src/main/java/com/agile/admin/service/SysOauthClientDetailsService.java,0\0\0099fb09c3b220d1ea1eecbbeef26ca90c807559
+ö
+jagile-upms/agile-upms-biz/src/main/java/com/agile/admin/service/impl/SysOauthClientDetailsServiceImpl.java,f\3\f3ca473fa1b594ee8469d576105c4db6b158c9c3
+è
+_agile-upms/agile-upms-biz/src/main/java/com/agile/admin/mapper/SysOauthClientDetailsMapper.java,1\5\15859b5d36f11a8614e7202d6e2fe9a6da93d793
+â
+Yagile-upms/agile-upms-biz/src/main/java/com/agile/admin/controller/SysDeptController.java,1\b\1b9d6dc1b2b03668cd787c6f3064a13b4204619f
+Å
+Qagile-upms/agile-upms-biz/src/main/java/com/agile/admin/mapper/SysDeptMapper.java,b\4\b43383d20dd3757ca1083e0412ad440d6ecd06de

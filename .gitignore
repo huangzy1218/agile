@@ -44,3 +44,5 @@ Servers
 .flattened-pom.xml
 
 *.log
+
+.idea/sonarlint
