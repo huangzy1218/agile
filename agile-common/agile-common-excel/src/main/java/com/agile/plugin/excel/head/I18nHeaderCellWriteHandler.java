@@ -4,9 +4,10 @@ import com.alibaba.excel.metadata.Head;
 import com.alibaba.excel.write.handler.CellWriteHandler;
 import com.alibaba.excel.write.metadata.holder.WriteSheetHolder;
 import com.alibaba.excel.write.metadata.holder.WriteTableHolder;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.poi.ss.usermodel.Row;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.util.PropertyPlaceholderHelper;
@@ -19,7 +20,6 @@ import java.util.stream.Collectors;
  *
  * @author Huang Z.Y.
  */
-@RequiredArgsConstructor
 public class I18nHeaderCellWriteHandler implements CellWriteHandler {
 
     /**
@@ -31,17 +31,17 @@ public class I18nHeaderCellWriteHandler implements CellWriteHandler {
      * International translation.
      */
     private final PropertyPlaceholderHelper.PlaceholderResolver placeholderResolver;
-
-    public I18nHeaderCellWriteHandler(MessageSource messageSource) {
-        this.messageSource = messageSource;
-        this.placeholderResolver = placeholderName -> this.messageSource.getMessage(placeholderName, null,
-                LocaleContextHolder.getLocale());
-    }
-
     /**
      * Placeholder process.
      */
     private final PropertyPlaceholderHelper propertyPlaceholderHelper = new PropertyPlaceholderHelper("{", "}");
+
+    @Autowired
+    public I18nHeaderCellWriteHandler(@Qualifier("messageSource") MessageSource messageSource) {
+        this.messageSource = messageSource;
+        this.placeholderResolver = placeholderName -> this.messageSource.getMessage(placeholderName, null,
+                LocaleContextHolder.getLocale());
+    }
 
     @Override
     public void beforeCellCreate(WriteSheetHolder writeSheetHolder, WriteTableHolder writeTableHolder, Row row,

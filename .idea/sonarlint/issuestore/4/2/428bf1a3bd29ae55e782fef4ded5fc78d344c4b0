@@ -1,0 +1,13 @@
+
+
+java:S2259F"OA "NullPointerException" could be thrown; "authorizationCode" is nullable here.(ñƒ‹âÿÿÿÿÿJ$009a296a-e2fd-43be-b170-906c4606b6cf
+
+java:S2259o"OA "NullPointerException" could be thrown; "authorizationCode" is nullable here.(ñƒ‹âÿÿÿÿÿJ$a858d9d1-d812-4b4d-bd8b-b0d730d623c1
+‘
+java:S2259t"NA "NullPointerException" could be thrown; "getRefreshToken()" can return null.(À«ÈÕ8½òŸİ‰2J$872bf939-f76d-4cc5-a538-ad4d005a762f
+Š
+java:S2259P"NA "NullPointerException" could be thrown; "getRefreshToken()" can return null.(À«ÈÕJ$5f59b19a-2317-4b7f-8cdb-65b06b78e096
+‡
+java:S1192'"FDefine a constant instead of duplicating this literal "state" 3 times.(‘ŒÒÛüÿÿÿÿJ$920ae7df-1951-43a8-824c-005642256878
+
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ÜğÍJ$8e2a859b-355e-4849-9238-b2cc9dde4a49

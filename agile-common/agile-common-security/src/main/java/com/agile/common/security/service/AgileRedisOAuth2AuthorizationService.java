@@ -1,6 +1,5 @@
 package com.agile.common.security.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.lang.Nullable;
@@ -24,7 +23,6 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Huang Z.Y.
  */
-@RequiredArgsConstructor
 public class AgileRedisOAuth2AuthorizationService implements OAuth2AuthorizationService {
 
     private final static Long TIMEOUT = 10L;
@@ -32,6 +30,28 @@ public class AgileRedisOAuth2AuthorizationService implements OAuth2Authorization
     private static final String AUTHORIZATION = "token";
 
     private final RedisTemplate<String, Object> redisTemplate;
+
+    public AgileRedisOAuth2AuthorizationService(RedisTemplate<String, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
+    private static boolean isState(OAuth2Authorization authorization) {
+        return Objects.nonNull(authorization.getAttribute("state"));
+    }
+
+    private static boolean isCode(OAuth2Authorization authorization) {
+        OAuth2Authorization.Token<OAuth2AuthorizationCode> authorizationCode = authorization
+                .getToken(OAuth2AuthorizationCode.class);
+        return Objects.nonNull(authorizationCode);
+    }
+
+    private static boolean isRefreshToken(OAuth2Authorization authorization) {
+        return Objects.nonNull(authorization.getRefreshToken());
+    }
+
+    private static boolean isAccessToken(OAuth2Authorization authorization) {
+        return Objects.nonNull(authorization.getAccessToken());
+    }
 
     @Override
     public void save(OAuth2Authorization authorization) {
@@ -121,24 +141,6 @@ public class AgileRedisOAuth2AuthorizationService implements OAuth2Authorization
 
     private String buildKey(String type, String id) {
         return String.format("%s::%s::%s", AUTHORIZATION, type, id);
-    }
-
-    private static boolean isState(OAuth2Authorization authorization) {
-        return Objects.nonNull(authorization.getAttribute("state"));
-    }
-
-    private static boolean isCode(OAuth2Authorization authorization) {
-        OAuth2Authorization.Token<OAuth2AuthorizationCode> authorizationCode = authorization
-                .getToken(OAuth2AuthorizationCode.class);
-        return Objects.nonNull(authorizationCode);
-    }
-
-    private static boolean isRefreshToken(OAuth2Authorization authorization) {
-        return Objects.nonNull(authorization.getRefreshToken());
-    }
-
-    private static boolean isAccessToken(OAuth2Authorization authorization) {
-        return Objects.nonNull(authorization.getAccessToken());
     }
 
 }

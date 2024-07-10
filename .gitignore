@@ -42,3 +42,5 @@ Thumbs.db
 Servers
 .metadata
 .flattened-pom.xml
+
+*.log
