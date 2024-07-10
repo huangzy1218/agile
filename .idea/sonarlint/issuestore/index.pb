@@ -103,3 +103,15 @@ Q
 !agile-upms/agile-upms-biz/pom.xml,a\9\a9d97a8d9232c1219f9a2df97b27005f05d9954c
 <
 db/agile.sql,c\4\c45219401fb9b68c9f5f1a91514897e3c517d7e2
+‚
+Ragile-upms/agile-upms-biz/src/main/java/com/agile/admin/AgileAdminApplication.java,c\6\c635a9b758786e701cafe32783abee02d45588d2
+•
+eagile-common/agile-common-feign/src/main/java/com/agile/feign/annotation/EnableAgileFeignClients.java,9\e\9e93ce1c89a52abe696ebc21ac209284d330d117
+B
+agile-upms/pom.xml,c\4\c4109aecf41bcba0f734f698308c45d544872fbf
+
+`agile-common/agile-common-core/src/main/java/com/agile/common/core/constant/CommonConstants.java,6\1\614a490ae5345c38b7eda711a9e80b137c55a79c
+’
+bagile-visual/agile-monitor/src/main/java/com/agile/monitor/config/SecuritySecureConfiguration.java,4\c\4ceacf2efbcd093a9903ec380509b66a11a5d5bb
+x
+Hagile-register/src/main/java/com/alibaba/nacos/config/ConsoleConfig.java,b\7\b74e46023aad1aac80b8dd710fa5f9193d8d7041

@@ -30,7 +30,9 @@ nacos:
 
 spring:
   application:
-    name: @project.artifactId@
+    name: '@project.artifactId@'
+  datasource:
+    platform: mysql
   security:
     enabled: true
   boot: # 接入 spring boot admin

@@ -14,15 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
-import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.util.UUID;
-
-import static org.springframework.http.HttpMethod.DELETE;
-import static org.springframework.http.HttpMethod.POST;
 
 /**
  * Web security configurer.
@@ -65,14 +59,14 @@ public class SecuritySecureConfiguration {
                 .logout((logout) -> logout.logoutUrl(this.adminServer.path("/logout")))
                 .httpBasic(Customizer.withDefaults());
 
-        http.addFilterAfter(new CustomCsrfFilter(), BasicAuthenticationFilter.class) // <5>
-                .csrf((csrf) -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                        .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler())
-                        .ignoringRequestMatchers(
-                                new AntPathRequestMatcher(this.adminServer.path("/instances"), POST.toString()), // <6>
-                                new AntPathRequestMatcher(this.adminServer.path("/instances/*"), DELETE.toString()), // <6>
-                                new AntPathRequestMatcher(this.adminServer.path("/actuator/**")) // <7>
-                        ));
+//        http.addFilterAfter(new CustomCsrfFilter(), BasicAuthenticationFilter.class) // <5>
+//                .csrf((csrf) -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+//                        .csrfTokenRequestHandler(new CsrfTokenRequestAttributeHandler())
+//                        .ignoringRequestMatchers(
+//                                new AntPathRequestMatcher(this.adminServer.path("/instances"), POST.toString()), // <6>
+//                                new AntPathRequestMatcher(this.adminServer.path("/instances/*"), DELETE.toString()), // <6>
+//                                new AntPathRequestMatcher(this.adminServer.path("/actuator/**")) // <7>
+//                        ));
 
         http.rememberMe((rememberMe) -> rememberMe.key(UUID.randomUUID().toString()).tokenValiditySeconds(1209600));
 

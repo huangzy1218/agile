@@ -260,12 +260,6 @@
 
     <build>
         <plugins>
-            <!-- Package Jars and git commit associated plug-ins -->
-            <plugin>
-                <groupId>io.github.git-commit-id</groupId>
-                <artifactId>git-commit-id-maven-plugin</artifactId>
-                <version>${git.commit.plugin}</version>
-            </plugin>
             <!-- Code format plug-in -->
             <plugin>
                 <groupId>io.spring.javaformat</groupId>
