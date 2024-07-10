@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>agile-auth</module>
-        <module>agile-boot</module>
+        <module>agile-server</module>
         <module>agile-common</module>
         <module>agile-gateway</module>
         <module>agile-register</module>

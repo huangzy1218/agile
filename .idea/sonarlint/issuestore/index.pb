@@ -95,3 +95,7 @@ Zagile-register/src/main/java/com/alibaba/nacos/console/controller/NamespaceCont
 ]agile-register/src/main/java/com/alibaba/nacos/console/exception/ConsoleExceptionHandler.java,7\e\7e32dc2105c282acabdc57f6a91f745c28dafe4a
 Ž
 ^agile-register/src/main/java/com/alibaba/nacos/console/exception/NacosApiExceptionHandler.java,3\c\3cd0780909f3bebc9bbe8bee31391fdfc1d4341f
+D
+agile-server/pom.xml,9\9\9948cf3cd88873f62a70a6eb71597291d8df9747
+n
+>agile-server/src/main/java/com/agile/AgileBootApplication.java,7\d\7dfde231351e90f20625c5d97bda329c44f83979

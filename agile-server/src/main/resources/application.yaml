@@ -1,0 +1,39 @@
+spring:
+  cache:
+    type: redis # Cache type Redis
+  data:
+    redis:
+      host: agile-redis  # Redis address
+      password: # Redis password
+      port: 6379  # Redis port
+  # Database configuration
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://pig-mysql:3306/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+
+# Local file system
+file:
+  local:
+    enable: true
+    base-path: /Users/MI/Downloads/img
+
+## Login configuration
+security:
+  # Login message encryption root key, must be 16 bits
+  encodeKey: hello,agilecloud
+  # Clients that skip verification code verification
+  ignore-clients:
+    - test
+
+# Configuration file encryption root password
+jasypt:
+  encryptor:
+    password: agile  # Encode root password
+    algorithm: PBEWithMD5AndDES  # Encode algorithm
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator # No vector generator
+
+# swagger configuration
+swagger:
+  token-url: ${swagger.gateway}/admin/oauth2/token
