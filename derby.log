@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Jul 09 23:00:52 CST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0190-9802-f2a9-0000027a4038 
+on database directory memory:D:\my_project\agile\b73705a6-7fa0-4628-8634-818639e0bfab with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@63947c6b 
+Loaded from file:/C:/Users/86158/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=17.0.4.1+1-LTS-2
+user.dir=D:\my_project\agile
+os.name=Windows 11
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
