@@ -1,5 +1,7 @@
 package com.agile.admin.controller;
 
+import com.agile.admin.api.entity.SysDept;
+import com.agile.admin.api.vo.DeptExcelVO;
 import com.agile.admin.service.SysDeptService;
 import com.agile.common.core.util.R;
 import com.agile.common.log.annotation.SysLog;
@@ -118,7 +120,7 @@ public class SysDeptController {
      */
     @ResponseExcel
     @GetMapping("/export")
-    public List<DeptExcelVo> export() {
+    public List<DeptExcelVO> export() {
         return sysDeptService.listExcelVo();
     }
 
@@ -130,7 +132,7 @@ public class SysDeptController {
      * @return
      */
     @PostMapping("import")
-    public R importDept(@RequestExcel List<DeptExcelVo> excelVOList, BindingResult bindingResult) {
+    public R importDept(@RequestExcel List<DeptExcelVO> excelVOList, BindingResult bindingResult) {
 
         return sysDeptService.importDept(excelVOList, bindingResult);
     }
