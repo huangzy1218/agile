@@ -20,5 +20,10 @@ public interface CacheConstants {
      */
     String USER_DETAILS = "user_details";
 
+    /**
+     * Dict details cache.
+     */
+    String DICT_DETAILS = "dict_details";
+    
 }
     
