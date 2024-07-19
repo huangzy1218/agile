@@ -28,6 +28,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
+ * Role table service class.
+ *
  * @author Huang Z.Y.
  */
 @Service
