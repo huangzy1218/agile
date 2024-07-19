@@ -51,18 +51,18 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
     }
 
     /**
-     * 查询全部部门树
+     * Query all department trees.
      *
      * @param deptName
-     * @return 树 部门名称
+     * @return Tree department name
      */
     @Override
     public List<Tree<Long>> selectTree(String deptName) {
-        // 查询全部部门
+        // Search all departments
         List<SysDept> deptAllList = deptMapper
                 .selectList(Wrappers.<SysDept>lambdaQuery().like(StrUtil.isNotBlank(deptName), SysDept::getName, deptName));
 
-        // 权限内部门
+        // Permissions within the department
         List<TreeNode<Long>> collect = deptAllList.stream()
                 .filter(dept -> dept.getDeptId().intValue() != dept.getParentId())
                 .sorted(Comparator.comparingInt(SysDept::getSortOrder))
@@ -72,7 +72,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
                     treeNode.setParentId(dept.getParentId());
                     treeNode.setName(dept.getName());
                     treeNode.setWeight(dept.getSortOrder());
-                    // 有权限不返回标识
+                    // Do not return ID if you have permission
                     Map<String, Object> extra = new HashMap<>(8);
                     extra.put("createTime", dept.getCreateTime());
                     treeNode.setExtra(extra);
@@ -80,7 +80,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
                 })
                 .collect(Collectors.toList());
 
-        // 模糊查询 不组装树结构 直接返回 表格方便编辑
+        // Fuzzy query does not assemble the tree structure and returns directly. The table is easy to edit
         if (StrUtil.isNotBlank(deptName)) {
             return collect.stream().map(node -> {
                 Tree<Long> tree = new Tree<>();
@@ -94,9 +94,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
     }
 
     /**
-     * 导出部门
-     *
-     * @return
+     * Export department.
      */
     @Override
     public List<DeptExcelVO> listExcelVo() {
@@ -109,7 +107,7 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
                     .filter(it -> item.getParentId().equals(it.getDeptId()))
                     .map(SysDept::getName)
                     .findFirst();
-            deptExcelVo.setParentName(first.orElse("根部门"));
+            deptExcelVo.setParentName(first.orElse("Root department"));
             deptExcelVo.setSortOrder(item.getSortOrder());
             return deptExcelVo;
         }).collect(Collectors.toList());
@@ -126,15 +124,15 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
             Set<String> errorMsg = new HashSet<>();
             boolean exsitUsername = deptList.stream().anyMatch(sysDept -> item.getName().equals(sysDept.getName()));
             if (exsitUsername) {
-                errorMsg.add("部门名称已经存在");
+                errorMsg.add("Department name already exists");
             }
             SysDept one = this.getOne(Wrappers.<SysDept>lambdaQuery().eq(SysDept::getName, item.getParentName()));
-            if (item.getParentName().equals("根部门")) {
+            if (item.getParentName().equals("Root department")) {
                 one = new SysDept();
                 one.setDeptId(0L);
             }
             if (one == null) {
-                errorMsg.add("上级部门不存在");
+                errorMsg.add("The superior department does not exist");
             }
             if (CollUtil.isEmpty(errorMsg)) {
                 SysDept sysDept = new SysDept();
@@ -143,32 +141,32 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
                 sysDept.setSortOrder(item.getSortOrder());
                 baseMapper.insert(sysDept);
             } else {
-                // 数据不合法情况
+                // Data is illegal
                 errorMessageList.add(new ErrorMessage(item.getLineNum(), errorMsg));
             }
         }
         if (CollUtil.isNotEmpty(errorMessageList)) {
             return R.failed(errorMessageList);
         }
-        return R.ok(null, "部门导入成功");
+        return R.ok(null, "Department import successful");
     }
 
     /**
-     * 查询所有子节点 （包含当前节点）
+     * Query all child nodes (including the current node).
      *
-     * @param deptId 部门ID 目标部门ID
+     * @param deptId Target department ID
      * @return ID
      */
     @Override
     public List<SysDept> listDescendant(Long deptId) {
-        // 查询全部部门
+        // Search all departments
         List<SysDept> allDeptList = baseMapper.selectList(Wrappers.emptyWrapper());
 
-        // 递归查询所有子节点
+        // Recursively query all child nodes
         List<SysDept> resDeptList = new ArrayList<>();
         recursiveDept(allDeptList, deptId, resDeptList);
 
-        // 添加当前节点
+        // Add current node
         resDeptList.addAll(allDeptList.stream()
                 .filter(sysDept -> deptId.equals(sysDept.getDeptId()))
                 .toList());
@@ -176,11 +174,11 @@ public class SysDeptServiceImpl extends ServiceImpl<SysDeptMapper, SysDept> impl
     }
 
     /**
-     * 递归查询所有子节点。
+     * Recursively query all child nodes.
      *
-     * @param allDeptList 所有部门列表
-     * @param parentId    父部门ID
-     * @param resDeptList 结果集合
+     * @param allDeptList List of all departments
+     * @param parentId    Parent department ID
+     * @param resDeptList Result set
      */
     private void recursiveDept(List<SysDept> allDeptList, Long parentId, List<SysDept> resDeptList) {
         allDeptList.stream().filter(sysDept -> sysDept.getParentId().equals(parentId)).forEach(sysDept -> {
