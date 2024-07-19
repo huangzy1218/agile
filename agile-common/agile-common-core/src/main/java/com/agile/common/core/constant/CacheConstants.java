@@ -35,5 +35,10 @@ public interface CacheConstants {
      */
     String PARAMS_DETAILS = "params_details";
 
+    /**
+     * Role information cache.
+     */
+    String ROLE_DETAILS = "role_details";
+
 }
     
