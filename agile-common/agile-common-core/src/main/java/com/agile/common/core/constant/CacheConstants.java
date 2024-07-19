@@ -30,5 +30,10 @@ public interface CacheConstants {
      */
     String MENU_DETAILS = "menu_details";
 
+    /**
+     * Parameter cache.
+     */
+    String PARAMS_DETAILS = "params_details";
+
 }
     
