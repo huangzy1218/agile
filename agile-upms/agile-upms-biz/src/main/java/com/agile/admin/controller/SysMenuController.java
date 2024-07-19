@@ -1,7 +1,10 @@
 package com.agile.admin.controller;
 
 import com.agile.admin.api.entity.SysMenu;
+import com.agile.admin.service.SysMenuService;
 import com.agile.common.core.util.R;
+import com.agile.common.log.annotation.SysLog;
+import com.agile.common.security.util.SecurityUtils;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -70,8 +73,8 @@ public class SysMenuController {
     /**
      * Query menu details by ID.
      *
-     * @param id 菜单ID
-     * @return 菜单详细信息
+     * @param id Menu ID
+     * @return Menu details
      */
     @GetMapping("/{id}")
     public R getById(@PathVariable Long id) {
@@ -79,12 +82,12 @@ public class SysMenuController {
     }
 
     /**
-     * 新增菜单
+     * Add menu.
      *
-     * @param sysMenu 菜单信息
-     * @return success/false
+     * @param sysMenu Menu information
+     * @return {@code true} for success
      */
-    @SysLog("新增菜单")
+    @SysLog("Add menu")
     @PostMapping
     @PreAuthorize("@pms.hasPermission('sys_menu_add')")
     public R save(@Valid @RequestBody SysMenu sysMenu) {
@@ -93,12 +96,12 @@ public class SysMenuController {
     }
 
     /**
-     * 删除菜单
+     * Delete menu.
      *
-     * @param id 菜单ID
-     * @return success/false
+     * @param id Menu ID
+     * @return {@code true} for success
      */
-    @SysLog("删除菜单")
+    @SysLog("Delete menu")
     @DeleteMapping("/{id}")
     @PreAuthorize("@pms.hasPermission('sys_menu_del')")
     public R removeById(@PathVariable Long id) {
@@ -106,12 +109,11 @@ public class SysMenuController {
     }
 
     /**
-     * 更新菜单
+     * Update menu.
      *
-     * @param sysMenu
-     * @return
+     * @param sysMenu System menu
      */
-    @SysLog("更新菜单")
+    @SysLog("Update menu")
     @PutMapping
     @PreAuthorize("@pms.hasPermission('sys_menu_edit')")
     public R update(@Valid @RequestBody SysMenu sysMenu) {

@@ -24,6 +24,11 @@ public interface CacheConstants {
      * Dict details cache.
      */
     String DICT_DETAILS = "dict_details";
-    
+
+    /**
+     * Menu information cache.
+     */
+    String MENU_DETAILS = "menu_details";
+
 }
     
