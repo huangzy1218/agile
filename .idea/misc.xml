@@ -5,11 +5,13 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/agile-quartz/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/agile-test/pom.xml" />
+        <option value="$PROJECT_DIR$/agile-visual/pom.xml" />
       </set>
     </option>
   </component>
