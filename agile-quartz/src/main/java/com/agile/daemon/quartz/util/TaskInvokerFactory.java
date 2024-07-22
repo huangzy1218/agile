@@ -7,6 +7,8 @@ import com.agile.daemon.quartz.exception.TaskException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * Create a task invoker by {@link JobTypeQuartzEnum}.
+ *
  * @author Huang Z.Y.
  */
 @Slf4j
