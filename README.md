@@ -32,10 +32,9 @@ agile
 └── agile-upms -- General User Permission Management Module
     ├── agile-upms-api -- General User Permission Management System Public API Module
     └── agile-upms-biz -- General User Permission Management System Business Processing Module [4000]
-└── agile-visual
-    ├── agile-monitor -- Service Monitoring [5001]
-    ├── agile-codegen -- Graphical Code Generator [5002]
-    └── agile-quartz -- Scheduled Task Management [5007]
+├── agile-monitor -- Service Monitoring [5001]
+├── agile-codegen -- Graphical Code Generator [5002]
+└── agile-quartz -- Scheduled Task Management [5007]
 ```
 
 ## Technology Selection
