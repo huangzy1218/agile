@@ -6,6 +6,7 @@ import com.agile.daemon.quartz.constant.AgileQuartzEnum;
 import com.agile.daemon.quartz.entity.SysJob;
 import com.agile.daemon.quartz.exception.TaskException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
@@ -15,6 +16,7 @@ import java.lang.reflect.Method;
  * @author Huang Z.Y.
  */
 @Slf4j
+@Component
 public class JavaClassTaskInvoker implements ITaskInvoker {
 
     @Override

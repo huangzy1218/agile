@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.agile.daemon.quartz.entity.SysJob;
 import com.agile.daemon.quartz.exception.TaskException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author Huang Z.Y.
  */
 @Slf4j
+@Component
 public class JarTaskInvoker implements ITaskInvoker {
 
     @Override
