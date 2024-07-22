@@ -115,10 +115,10 @@
                 <artifactId>agile-upms-api</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <!-- MySQL Connection -->
             <dependency>
                 <groupId>com.agile</groupId>
                 <artifactId>agile-common-swagger</artifactId>
+                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.mysql</groupId>
