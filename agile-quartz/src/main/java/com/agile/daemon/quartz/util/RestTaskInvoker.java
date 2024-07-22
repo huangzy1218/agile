@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
+ * Rest reflection implementation of scheduled tasks.
+ *
  * @author Huang Z.Y.
  */
 @Slf4j
