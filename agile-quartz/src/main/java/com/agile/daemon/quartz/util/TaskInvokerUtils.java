@@ -4,6 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import com.agile.daemon.quartz.constant.AgileQuartzEnum;
 import com.agile.daemon.quartz.entity.SysJob;
 import com.agile.daemon.quartz.entity.SysJobLog;
+import com.agile.daemon.quartz.event.SysJobLogEvent;
 import com.agile.daemon.quartz.service.SysJobService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -66,7 +67,9 @@ public class TaskInvokerUtils {
             // Task list information update
             updateSysjob.setJobExecuteStatus(AgileQuartzEnum.JOB_LOG_STATUS_SUCCESS.getType());
         } catch (Throwable e) {
-            log.error("定时任务执行失败，任务名称：{}；任务组名：{}，cron执行表达式：{}，执行时间：{}", sysJob.getJobName(), sysJob.getJobGroup(),
+            log.error("Scheduled task execution failed，task name：{}；task group name：{}，cron execution expression：{}，" +
+                            "execution time：{}",
+                    sysJob.getJobName(), sysJob.getJobGroup(),
                     sysJob.getCronExpression(), new Date());
             // Log failure status
             sysJobLog.setJobMessage(AgileQuartzEnum.JOB_LOG_STATUS_FAIL.getDescription());
