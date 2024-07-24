@@ -55,8 +55,8 @@ public class TaskExecutor {
     /**
      * Add or update scheduled task.
      *
-     * @param sysjob
-     * @param scheduler
+     * @param sysjob    Scheduled job
+     * @param scheduler Scheduler
      */
     public void addOrUpdateJob(SysJob sysjob, Scheduler scheduler) {
         CronTrigger trigger = null;

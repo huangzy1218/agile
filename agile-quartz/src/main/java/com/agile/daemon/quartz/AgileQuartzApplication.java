@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
+ * Scheduled task startup class.
+ *
  * @author Huang Z.Y.
  */
 @EnableAgileDoc("job")
