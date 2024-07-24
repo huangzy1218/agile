@@ -1,0 +1,25 @@
+# The following configuration uses the database to store scheduled tasks. The attributes are not modified frequently,
+# so they are not placed in application.yml for unified management.
+spring:
+  quartz:
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: clusteredScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.springframework.scheduling.quartz.LocalDataSourceJobStore # Database storage
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate # Database agent
+            tablePrefix: QRTZ_ # Table prefix
+            isClustered: true # Cluster
+            clusterCheckinInterval: 30000 # Cluster check interval
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool # Thread pool
+            threadCount: 50 # Number of threads
+            threadPriority: 5 # Thread priority
+            threadsInheritContextClassLoaderOfInitializingThread: true # Whether to inherit the class loader
+    job-store-type: jdbc # Persistence to database
+    jdbc:
+      initialize-schema: never # Do not initialize table structure
