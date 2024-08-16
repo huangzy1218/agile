@@ -25,8 +25,8 @@
         <springdoc.version>2.5.0</springdoc.version>
         <swagger.core.version>2.2.21</swagger.core.version>
         <mybatis-plus.version>3.5.6</mybatis-plus.version>
+        <dynamic-ds.version>4.3.1</dynamic-ds.version>
         <mysql.version>8.0.33</mysql.version>
-        <dynamic-ds.version>4.3.0</dynamic-ds.version>
         <seata.version>1.7.0</seata.version>
         <excel.version>3.2.1</excel.version>
         <asm.version>7.1</asm.version>
@@ -46,6 +46,13 @@
         <spring-aspects.version>5.2.5.RELEASE</spring-aspects.version>
         <spring-boot-admin-starter.version>2.5.0</spring-boot-admin-starter.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>aliyun-repo</id>
+            <url>http://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
 
     <!-- Define the global jar version -->
     <dependencyManagement>

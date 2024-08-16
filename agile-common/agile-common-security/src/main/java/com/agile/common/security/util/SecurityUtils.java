@@ -1,6 +1,7 @@
 package com.agile.common.security.util;
 
 import cn.hutool.core.util.StrUtil;
+import com.agile.common.core.constant.SecurityConstants;
 import com.agile.common.security.service.AgileUser;
 import lombok.experimental.UtilityClass;
 import org.springframework.security.core.Authentication;

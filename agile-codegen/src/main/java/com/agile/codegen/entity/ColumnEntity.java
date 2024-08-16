@@ -19,7 +19,7 @@ public class ColumnEntity {
     private String dataType;
 
     /**
-     * JAVA data type.
+     * Java data type.
      */
     private String javaType;
 
