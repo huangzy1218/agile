@@ -21,7 +21,7 @@ import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import org.aopalliance.intercept.MethodInvocation;
 
 /**
- * Parameter data source parsing {@code @DS("#last)}.
+ * Parameter data source parsing {@code @DS("#last")}.
  *
  * @author Huang Z.Y.
  */

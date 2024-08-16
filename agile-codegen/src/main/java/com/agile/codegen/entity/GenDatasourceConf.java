@@ -36,7 +36,7 @@ public class GenDatasourceConf extends Model<GenDatasourceConf> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Primary Key.
+     * Primary key.
      */
     @TableId(type = IdType.ASSIGN_ID)
     private Long id;
@@ -47,7 +47,7 @@ public class GenDatasourceConf extends Model<GenDatasourceConf> {
     private String name;
 
     /**
-     * Database Type.
+     * Database type.
      */
     private String dsType;
 

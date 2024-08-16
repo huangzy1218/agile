@@ -1,0 +1,12 @@
+{
+  "project": {
+    "packageName": "com.agile",
+    "version": "1.0.0",
+    "backendPath": "agile",
+    "frontendPath": "agile-ui"
+  },
+  "developer": {
+    "author": "Huang Z.Y.",
+    "email": "huangzy@nwafu.edu.cn"
+  }
+}

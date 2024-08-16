@@ -48,11 +48,11 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
     }
 
     /**
-     * 执行语句获得数据源参数
+     * Execute the statement to obtain the data source parameters.
      *
-     * @param statement 语句
-     * @return 数据源参数
-     * @throws SQLException sql异常
+     * @param statement Statement
+     * @return Data source parameters
+     * @throws SQLException SQL exception
      */
     @Override
     protected Map<String, DataSourceProperty> executeStmt(Statement statement) throws SQLException {
@@ -72,7 +72,7 @@ public class JdbcDynamicDataSourceProvider extends AbstractJdbcDataSourceProvide
             map.put(name, property);
         }
 
-        // 添加默认主数据源
+        // Add default primary data source
         DataSourceProperty property = new DataSourceProperty();
         property.setUsername(properties.getUsername());
         property.setPassword(properties.getPassword());

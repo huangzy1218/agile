@@ -1,6 +1,7 @@
 package com.agile.datasource;
 
 import com.agile.datasource.config.ClearTtlDataSourceFilter;
+import com.agile.datasource.config.DataSourceProperties;
 import com.agile.datasource.config.JdbcDynamicDataSourceProvider;
 import com.agile.datasource.config.LastParamDsProcessor;
 import com.baomidou.dynamic.datasource.creator.DataSourceCreator;
@@ -15,7 +16,6 @@ import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -25,37 +25,37 @@ public enum DsJdbcUrlEnum {
             "jdbc:mysql://%s:%s/%s?characterEncoding=utf8"
                     + "&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true"
                     + "&useLegacyDatetimeCode=false&allowMultiQueries=true&allowPublicKeyRetrieval=true",
-            "select 1", "mysql8 链接"),
+            "select 1", "mysql8 connection"),
 
     /**
      * pg
      */
-    PG("pg", "jdbc:postgresql://%s:%s/%s", "select 1", "postgresql 链接"),
+    PG("pg", "jdbc:postgresql://%s:%s/%s", "select 1", "postgresql Link"),
 
     /**
      * SQL SERVER.
      */
-    MSSQL("mssql", "jdbc:sqlserver://%s:%s;database=%s;characterEncoding=UTF-8", "select 1", "sqlserver 链接"),
+    MSSQL("mssql", "jdbc:sqlserver://%s:%s;database=%s;characterEncoding=UTF-8", "select 1", "sqlserver connection"),
 
     /**
      * Oracle.
      */
-    ORACLE("oracle", "jdbc:oracle:thin:@%s:%s:%s", "select 1 from dual", "oracle 链接"),
+    ORACLE("oracle", "jdbc:oracle:thin:@%s:%s:%s", "select 1 from dual", "oracle connection"),
 
     /**
      * DB2.
      */
-    DB2("db2", "jdbc:db2://%s:%s/%s", "select 1 from sysibm.sysdummy1", "DB2 TYPE4 连接"),
+    DB2("db2", "jdbc:db2://%s:%s/%s", "select 1 from sysibm.sysdummy1", "DB2 TYPE4 connection"),
 
     /**
-     * Da Meng.
+     * Dameng.
      */
-    DM("dm", "jdbc:dm://%s:%s/%s", "select 1 from dual", "达梦连接"),
+    DM("dm", "jdbc:dm://%s:%s/%s", "select 1 from dual", "Dameng connection"),
 
     /**
-     * pg
+     * Highgo.
      */
-    HIGHGO("highgo", "jdbc:highgo://%s:%s/%s", "select 1", "highgo 链接");
+    HIGHGO("highgo", "jdbc:highgo://%s:%s/%s", "select 1", "highgo connection");
 
     private final String dbName;
 
