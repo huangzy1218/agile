@@ -1,4 +1,4 @@
-package common.datasource.enums;
+package com.agile.datasource.enums;
 
 /**
  * @author Huang Z.Y.

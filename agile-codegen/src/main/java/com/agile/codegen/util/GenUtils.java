@@ -5,8 +5,8 @@ import com.agile.codegen.entity.GenDatasourceConf;
 import com.agile.codegen.mapper.GenDatasourceConfMapper;
 import com.agile.codegen.mapper.GeneratorMapper;
 import com.agile.common.core.util.SpringContextHolder;
+import com.agile.datasource.enums.DsJdbcUrlEnum;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import common.datasource.enums.DsJdbcUrlEnum;
 import lombok.experimental.UtilityClass;
 import org.springframework.context.ApplicationContext;
 
