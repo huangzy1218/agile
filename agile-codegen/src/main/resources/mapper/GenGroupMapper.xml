@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.agile.codegen.mapper.GenGroupMapper">
+
+  <resultMap id="genGroupMap" type="com.agile.codegen.entity.vo.GroupVo">
+        <id property="id" column="group_id"/>
+        <result property="groupName" column="group_name"/>
+        <result property="groupDesc" column="group_desc"/>
+	    <collection property="templateList" ofType="com.agile.codegen.entity.GenTemplateEntity"
+                    select="com.agile.codegen.mapper.GenTemplateMapper.listTemplateById" column="group_id">
+	    </collection>
+  </resultMap>
+
+	<select id="getGroupVoById" resultMap="genGroupMap">
+	    SELECT
+        g.id as group_id ,
+        g.group_name ,
+        g.group_desc
+		FROM
+		gen_group g
+		WHERE g.id = #{id}
+
+	</select>
+
+</mapper>
