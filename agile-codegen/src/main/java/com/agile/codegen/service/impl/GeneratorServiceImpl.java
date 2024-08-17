@@ -90,6 +90,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 
             dataModel.put("frontendPath", frontendPath);
             dataModel.put("backendPath", backendPath);
+            // Core logic
             String content = VelocityUtils.renderStr(templateCode, dataModel);
             String path = VelocityUtils.renderStr(generatorPath, dataModel);
 

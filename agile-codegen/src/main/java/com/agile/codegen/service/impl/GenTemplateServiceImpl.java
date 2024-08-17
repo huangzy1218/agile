@@ -16,17 +16,16 @@
  */
 package com.agile.codegen.service.impl;
 
+import com.agile.codegen.entity.GenTemplateEntity;
+import com.agile.codegen.mapper.GenTemplateMapper;
+import com.agile.codegen.service.GenTemplateService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.pig4cloud.pig.codegen.entity.GenTemplateEntity;
-import com.pig4cloud.pig.codegen.mapper.GenTemplateMapper;
-import com.pig4cloud.pig.codegen.service.GenTemplateService;
 import org.springframework.stereotype.Service;
 
 /**
- * 模板
+ * Template service implementation.
  *
- * @author PIG
- * @date 2023-02-21 11:08:43
+ * @author Huang Z.Y.
  */
 @Service
 public class GenTemplateServiceImpl extends ServiceImpl<GenTemplateMapper, GenTemplateEntity>

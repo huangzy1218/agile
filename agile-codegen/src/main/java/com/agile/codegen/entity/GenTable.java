@@ -31,7 +31,6 @@ import java.util.List;
 
 /**
  * Column properties.
- * This class represents the properties of a database table, including its name, type, and metadata such as creation and update information.
  *
  * @author Huang Z.Y.
  */

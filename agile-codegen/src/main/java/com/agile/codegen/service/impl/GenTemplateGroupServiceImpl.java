@@ -16,17 +16,16 @@
  */
 package com.agile.codegen.service.impl;
 
+import com.agile.codegen.entity.GenTemplateGroupEntity;
+import com.agile.codegen.mapper.GenTemplateGroupMapper;
+import com.agile.codegen.service.GenTemplateGroupService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.pig4cloud.pig.codegen.entity.GenTemplateGroupEntity;
-import com.pig4cloud.pig.codegen.mapper.GenTemplateGroupMapper;
-import com.pig4cloud.pig.codegen.service.GenTemplateGroupService;
 import org.springframework.stereotype.Service;
 
 /**
- * 模板分组关联表
+ * Template group association service implementation.
  *
- * @author PIG
- * @date 2023-02-22 09:25:15
+ * @author Huang Z.Y.
  */
 @Service
 public class GenTemplateGroupServiceImpl extends ServiceImpl<GenTemplateGroupMapper, GenTemplateGroupEntity>

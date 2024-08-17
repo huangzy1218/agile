@@ -33,6 +33,7 @@ import com.agile.codegen.service.GenTableColumnService;
 import com.agile.codegen.service.GenTableService;
 import com.agile.codegen.util.BoolFillEnum;
 import com.agile.codegen.util.CommonColumnFiledEnum;
+import com.agile.codegen.util.GenUtils;
 import com.agile.codegen.util.GeneratorTypeEnum;
 import com.baomidou.dynamic.datasource.toolkit.DynamicDataSourceContextHolder;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -71,8 +72,6 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
 
     /**
      * Get configuration information.
-     *
-     * @return
      */
     @Override
     public Map<String, Object> getGeneratorConfig() {
@@ -83,40 +82,40 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
 
     @Override
     public List<Map<String, Object>> queryDsAllTable(String dsName) {
-        GeneratorMapper mapper = GenKit.getMapper(dsName);
-        // 手动切换数据源
+        GeneratorMapper mapper = GenUtils.getMapper(dsName);
+        // Manually switch data source
         DynamicDataSourceContextHolder.push(dsName);
         return mapper.queryTable();
     }
 
     @Override
     public List<Map<String, String>> queryColumn(String dsName, String tableName) {
-        GeneratorMapper mapper = GenKit.getMapper(dsName);
+        GeneratorMapper mapper = GenUtils.getMapper(dsName);
         return mapper.selectMapTableColumn(tableName, dsName);
     }
 
     @Override
     public IPage list(Page<GenTable> page, GenTable table) {
-        GeneratorMapper mapper = GenKit.getMapper(table.getDsName());
-        // 手动切换数据源
+        GeneratorMapper mapper = GenUtils.getMapper(table.getDsName());
+        // Manually switch data source
         DynamicDataSourceContextHolder.push(table.getDsName());
         return mapper.queryTable(page, table.getTableName());
     }
 
     /**
-     * 获取表信息
+     * Get table information
      *
-     * @param dsName
-     * @param tableName
-     * @return
+     * @param dsName    Data source name
+     * @param tableName Table name
+     * @return Column properties
      */
     @Override
     public GenTable queryOrBuildTable(String dsName, String tableName) {
         GenTable genTable = baseMapper.selectOne(
                 Wrappers.<GenTable>lambdaQuery().eq(GenTable::getTableName, tableName).eq(GenTable::getDsName, dsName));
-        // 如果 genTable 为空， 执行导入
+        // If genTable is empty, perform the import
         if (Objects.isNull(genTable)) {
-            genTable = this.tableImport(dsName, tableName);
+            genTable = tableImport(dsName, tableName);
         }
 
         List<GenTableColumnEntity> fieldList = columnService.list(Wrappers.<GenTableColumnEntity>lambdaQuery()
@@ -133,17 +132,17 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
 
     @Transactional(rollbackFor = Exception.class)
     public GenTable tableImport(String dsName, String tableName) {
-        GeneratorMapper mapper = GenKit.getMapper(dsName);
-        // 手动切换数据源
+        GeneratorMapper mapper = GenUtils.getMapper(dsName);
+        // Manually switch data sources
         DynamicDataSourceContextHolder.push(dsName);
 
-        // 查询表是否存在
+        // Check whether the table exists
         GenTable table = new GenTable();
 
-        // 从数据库获取表信息
+        // Get table information from database
         Map<String, String> queryTable = mapper.queryTable(tableName, dsName);
 
-        // 获取默认表配置信息 （）
+        // Get default table configuration information
         Map<String, Object> generatorConfig = getGeneratorConfig();
         JSONObject project = (JSONObject) generatorConfig.get("project");
         JSONObject developer = (JSONObject) generatorConfig.get("developer");
@@ -161,12 +160,12 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
         table.setFormLayout(2);
         table.setGeneratorType(GeneratorTypeEnum.ZIP_DOWNLOAD.getValue());
         table.setClassName(NamingCase.toPascalCase(tableName));
-        table.setModuleName(GenKit.getModuleName(table.getPackageName()));
-        table.setFunctionName(GenKit.getFunctionName(tableName));
+        table.setModuleName(GenUtils.getModuleName(table.getPackageName()));
+        table.setFunctionName(GenUtils.getFunctionName(tableName));
         table.setCreateTime(LocalDateTime.now());
         this.save(table);
 
-        // 获取原生字段数据
+        // Get native field data, column map contains column information
         List<Map<String, String>> queryColumnList = mapper.selectMapTableColumn(tableName, dsName);
         List<GenTableColumnEntity> tableFieldList = new ArrayList<>();
 
@@ -186,7 +185,7 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
             genTableColumnEntity.setFormItem(BoolFillEnum.TRUE.getValue());
             genTableColumnEntity.setGridItem(BoolFillEnum.TRUE.getValue());
 
-            // 审计字段处理
+            // Handle audit field
             if (EnumUtil.contains(CommonColumnFiledEnum.class, columnName)) {
                 CommonColumnFiledEnum commonColumnFiledEnum = CommonColumnFiledEnum.valueOf(columnName);
                 genTableColumnEntity.setFormItem(commonColumnFiledEnum.getFormItem());
@@ -196,9 +195,9 @@ public class GenTableServiceImpl extends ServiceImpl<GenTableMapper, GenTable> i
             }
             tableFieldList.add(genTableColumnEntity);
         }
-        // 初始化字段数据
+        // Initialize field data
         columnService.initFieldList(tableFieldList);
-        // 保存列数据
+        // Save column data
         columnService.saveOrUpdateBatch(tableFieldList);
         table.setFieldList(tableFieldList);
         return table;

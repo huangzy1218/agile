@@ -36,6 +36,7 @@ public class GenTableColumnServiceImpl extends ServiceImpl<GenTableColumnMapper,
      *
      * @param tableFieldList Form field list
      */
+    @Override
     public void initFieldList(List<GenTableColumnEntity> tableFieldList) {
         // Field type, attribute type mapping
         List<GenFieldType> list = fieldTypeMapper.selectList(Wrappers.emptyWrapper());
