@@ -1,0 +1,26 @@
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/pig?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowMultiQueries=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&allowPublicKeyRetrieval=true
+rules:
+  - !SINGLE
+    tables:
+      - "*.*"
+  - !SHARDING
+    tables:
+      sys_log:
+        actualDataNodes: ds_0.sys_log_GET,ds_0.sys_log_POST,ds_0.sys_log_PUT,ds_0.sys_log_DELETE
+        tableStrategy:
+          standard:
+            shardingAlgorithmName: table-inline
+            shardingColumn: method
+    shardingAlgorithms:
+      table-inline:
+        props:
+          algorithm-expression: sys_log_$->{method}
+        type: INLINE
+props:
+  sql-show: true

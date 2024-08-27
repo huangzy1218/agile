@@ -63,7 +63,7 @@ public class VelocityUtils {
         context.put("dateTool", new DateTool());
         context.put("dict", new DictUtils());
         context.put("str", new NamingCaseUtils());
-        Velocity.evaluate(context, stringWriter, "renderStr", str);
+        Velocity.evaluate(context, stringWriter, "Agile Render", str);
         return stringWriter.toString();
     }
 
