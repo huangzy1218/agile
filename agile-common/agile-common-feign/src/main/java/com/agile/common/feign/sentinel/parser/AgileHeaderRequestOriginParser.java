@@ -22,8 +22,7 @@ import jakarta.servlet.http.HttpServletRequest;
 /**
  * sentinel 请求头解析判断
  *
- * @author lengleng
- * @date 2020-06-11
+ * @author Huang Z.Y.
  */
 public class AgileHeaderRequestOriginParser implements RequestOriginParser {
 

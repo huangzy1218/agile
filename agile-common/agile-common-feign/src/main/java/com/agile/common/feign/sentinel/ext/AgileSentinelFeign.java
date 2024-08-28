@@ -39,8 +39,7 @@ import java.util.Map;
 /**
  * 支持自动降级注入 重写 {@link com.alibaba.cloud.sentinel.feign.SentinelFeign}
  *
- * @author lengleng
- * @date 2020/6/9
+ * @author Huang Z.Y.
  */
 public final class AgileSentinelFeign {
 
@@ -90,16 +89,16 @@ public final class AgileSentinelFeign {
                     FallbackFactory<?> fallbackFactoryInstance;
                     if (void.class != fallback) {
                         fallbackInstance = getFromContext(beanName, "fallback", fallback, target.type());
-                        return new PigSentinelInvocationHandler(target, dispatch,
+                        return new AgileSentinelInvocationHandler(target, dispatch,
                                 new FallbackFactory.Default(fallbackInstance));
                     }
 
                     if (void.class != fallbackFactory) {
                         fallbackFactoryInstance = (FallbackFactory<?>) getFromContext(beanName, "fallbackFactory",
                                 fallbackFactory, FallbackFactory.class);
-                        return new PigSentinelInvocationHandler(target, dispatch, fallbackFactoryInstance);
+                        return new AgileSentinelInvocationHandler(target, dispatch, fallbackFactoryInstance);
                     }
-                    return new PigSentinelInvocationHandler(target, dispatch);
+                    return new AgileSentinelInvocationHandler(target, dispatch);
                 }
 
                 private Object getFromContext(String name, String type, Class<?> fallbackType, Class<?> targetType) {
